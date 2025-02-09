@@ -1,5 +1,5 @@
 
-HDFS_HOME=TO_BE_DEFINED
+HDFS_HOME=/workspace/hdfs
 RUN_NAME=Qwen2.5-Math-7B_ppo_from_base_math_lv35
 
 python3 openrlhf/cli/train_ppo_ray_box.py \
@@ -40,7 +40,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --gradient_checkpointing \
     --save_steps 4 \
     --load_checkpoint \
-    --use_wandb YOUR_WANDB_KEY \
+    --use_wandb 354d09b784ba4b3a3159f7eabc57d851a14ef067 \
     --wandb_run_name $RUN_NAME \
     --ckpt_path $HDFS_HOME/checkpoints/$RUN_NAME  \
     --max_ckpt_num 20000

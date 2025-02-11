@@ -1,7 +1,4 @@
 
-
-<div align="center">
-
 # Simple Reinforcement Learning for Reasoning
 
 ## Quick Start

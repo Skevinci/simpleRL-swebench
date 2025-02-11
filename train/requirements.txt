@@ -19,3 +19,4 @@ transformers==4.46.1
 transformers_stream_generator
 wandb
 wheel
+word2number

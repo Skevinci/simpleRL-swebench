@@ -52,6 +52,7 @@ def _validate_args(args):
 def train(args):
     _validate_args(args)
 
+    print("============ Configure strategy ============")
     # configure strategy
     strategy = get_strategy(args)
 
@@ -137,6 +138,7 @@ def train(args):
     else:
         reward_models = None
 
+    print("============ Init models ============")
     # init reference/reward/actor model
     refs = []
     refs.extend(ref_model.async_init_model_from_pretrained(strategy, args.pretrain))
@@ -168,6 +170,7 @@ def train(args):
         refs.extend(critic_model.async_init_model_from_pretrained(strategy, args.critic_pretrain, max_steps))
         ray.get(refs)
 
+    print("============ Start training ============")
     # train actor and critic mdoel
     refs = actor_model.async_fit_actor_model(
         critic_model, ref_model, reward_models, args.remote_rm_url, reward_fn=reward_fn, vllm_engines=vllm_engines
@@ -182,6 +185,7 @@ def train(args):
 
 
 if __name__ == "__main__":
+    print("===============================")
     parser = argparse.ArgumentParser()
     # Ray and vLLM
     parser.add_argument("--ref_num_nodes", type=int, default=1, help="number of nodes for reference")

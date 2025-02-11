@@ -52,9 +52,9 @@ def _validate_args(args):
 def train(args):
     _validate_args(args)
 
-    print("============ Configure strategy ============")
     # configure strategy
     strategy = get_strategy(args)
+    print("============ Finish configuring strategy ============")
 
     # if colocated, create placement group for actor and ref model explicitly.
     pg = None
@@ -69,6 +69,7 @@ def train(args):
         ]
         pg = placement_group(bundles, strategy="STRICT_SPREAD")
         ray.get(pg.ready())
+    print('============ Finish creating placement group ============')
 
     # NOTE(wuxibin): Why don't we allocate 0.5 gpu for each actor when colocate models?
     # Say we have 1 node with 4 GPUs, and num_gpus_per_node for each model is 4.
@@ -86,6 +87,7 @@ def train(args):
         pg=pg,
         num_gpus_per_actor=0.75 if pg else 1,
     )
+    print('============ Finish creating actor model ============')
 
     ref_model = PPORayActorGroup(
         args.ref_num_nodes,
@@ -94,6 +96,7 @@ def train(args):
         pg=pg,
         num_gpus_per_actor=0.25 if pg else 1,
     )
+    print('============ Finish creating reference model ============')
 
     # if colocated, create placement group for critic and reward model explicitly.
     pg = None
@@ -162,6 +165,7 @@ def train(args):
             args.enforce_eager,
             max_len,
         )
+    print("============ Finish init vLLM ============")
 
     if args.critic_pretrain:
         # critic scheduler initialization depends on max_step, so we have to init critic after actor

@@ -101,6 +101,7 @@ def train(args):
     # if colocated, create placement group for critic and reward model explicitly.
     pg = None
     if args.critic_pretrain and args.colocate_critic_reward:
+        print("============ Creating placement group for critic and reward model ============")
         assert (
             args.critic_num_nodes == args.reward_num_nodes
             and args.critic_num_gpus_per_node == args.reward_num_gpus_per_node
@@ -114,6 +115,7 @@ def train(args):
         ray.get(pg.ready())
 
     if args.critic_pretrain:
+        print("============ Creating critic model ============")
         critic_model = PPORayActorGroup(
             args.critic_num_nodes,
             args.critic_num_gpus_per_node,
@@ -124,10 +126,12 @@ def train(args):
     else:
         critic_model = None
 
+    print("============ Finish creating critic model ============")
     # multiple reward models
     if not args.remote_rm_url and args.reward_pretrain:
         reward_pretrains = args.reward_pretrain.split(",")
         reward_models = []
+        print("============ Creating reward models ============")
         for _ in reward_pretrains:
             reward_models.append(
                 PPORayActorGroup(

@@ -3054,6 +3054,7 @@ class NaiveExperienceMakerBOX(ABC):
         """
         Turn samples into experience by calculating logprobs, values, rewards, and kl divergence.
         """
+        print("****************** NaiveExperienceMakerBox.make_experience ******************")
         self.actor.eval()
         self.initial_model.eval()
         if self.reward_model is not None:
@@ -3693,6 +3694,7 @@ class RemoteExperienceMakerBOX(NaiveExperienceMakerBOX):
         """
         Turn samples into experience by calculating logprobs, values, rewards, and kl divergence.
         """
+        print("**************** RemoteExperienceMakerBOX.make_experience ****************")
         self.actor.eval()
         device = torch.cuda.current_device()
 

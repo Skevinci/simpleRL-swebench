@@ -14,7 +14,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --vllm_num_engines 2 \
     --vllm_tensor_parallel_size 1 \
     --colocate_actor_ref \
-    --pretrain $HDFS_HOME/model_hub/models--Qwen--Qwen2.5-Math-7B/snapshots/b101308fe89651ea5ce025f25317fea6fc07e96e \
+    --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \
     --micro_train_batch_size 2 \
     --train_batch_size 128 \

@@ -862,6 +862,7 @@ class ActorModelRayActorBOX(BasePPORole):
             pad_token_id=self.tokenizer.pad_token_id,
             eos_token_id=self.tokenizer.eos_token_id,
         )
+        print("====================== Finish configuring Trainer ======================")
 
         # broadcast checkpoint
         ckpt_path = os.path.join(args.ckpt_path, "_actor")
@@ -869,6 +870,7 @@ class ActorModelRayActorBOX(BasePPORole):
             torch.distributed.barrier()
             trainer._broadcast_to_vllm()
 
+        print("====================== Start fitting ======================")
         trainer.fit(
             args,
             self.prompts_dataloader,

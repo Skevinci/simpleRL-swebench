@@ -174,6 +174,7 @@ class PPOTrainerPRM800K_BOX(ABC):
             wandb.define_metric("train/*", step_metric="train/global_step", step_sync=True)
             wandb.define_metric("eval/epoch")
             wandb.define_metric("eval/*", step_metric="eval/epoch", step_sync=True)
+            print(f"=========================== Finish defining metrics ===========================")
 
         # Initialize TensorBoard writer if wandb is not available
         if self.strategy.args.use_tensorboard and self._wandb is None and self.strategy.is_rank_0():
@@ -231,6 +232,7 @@ class PPOTrainerPRM800K_BOX(ABC):
                 
                 #print("rand_prompts", rand_prompts)
                 #print("rabd_answers", rand_answer)
+                print("====================== Start making experience ======================")
                 for i, experience in enumerate(
                     self.experience_maker.make_experience_list(rand_prompts, rand_answer, **self.generate_kwargs)
                 ):

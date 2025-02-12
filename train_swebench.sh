@@ -18,7 +18,7 @@ bash -c "
     cd simpleRL-swebench/train;
     pip install -e .;
 
-    huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-7B --local-dir /workspace/hdfs/model_hub;
+    huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B --local-dir /workspace/hdfs/model_hub;
 
     python preprocess_swebench.py;
 

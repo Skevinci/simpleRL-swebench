@@ -18,7 +18,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --micro_train_batch_size 2 \
     --train_batch_size 128 \
     --micro_rollout_batch_size 2 \
-    --rollout_batch_size 512 \
+    --rollout_batch_size 1024 \
     --temperature 0.6 \
     --n_samples_per_prompt 8 \
     --max_samples 100000 \

@@ -8,7 +8,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --reward_num_nodes 0 \
     --reward_num_gpus_per_node 0 \
     --critic_num_nodes 1 \
-    --critic_num_gpus_per_node 2 \
+    --critic_num_gpus_per_node 4 \
     --actor_num_nodes 1 \
     --actor_num_gpus_per_node 4 \
     --colocate_actor_ref \
@@ -24,8 +24,8 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --max_samples 100000 \
     --max_epochs 1 \
     --num_episodes 20 \
-    --prompt_max_len 80000 \
-    --generate_max_len 4000 \
+    --prompt_max_len 100000 \
+    --generate_max_len 20000 \
     --zero_stage 2 \
     --bf16 \
     --actor_learning_rate 5e-7 \

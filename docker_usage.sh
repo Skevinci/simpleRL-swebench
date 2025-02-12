@@ -3,7 +3,7 @@
 #SBATCH --output=/nlp/data/sikaili/simpleRL-reason/output/prepare_output.txt
 #SBATCH --error=/nlp/data/sikaili/simpleRL-reason/output/prepare_error.txt
 #SBATCH --partition=p_nlp
-#SBATCH --gpus=6
+#SBATCH --gpus=8
 #SBATCH --nodelist=nlpgpu04
 #SBATCH --mem=400GB
 #SBATCH --cpus-per-gpu=4

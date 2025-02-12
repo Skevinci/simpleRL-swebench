@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=docker
+#SBATCH --job-name=train
 #SBATCH --output=/nlp/data/sikaili/simpleRL-swebench/output/train_output.txt
 #SBATCH --error=/nlp/data/sikaili/simpleRL-swebench/output/train_error.txt
 #SBATCH --partition=p_nlp
@@ -23,5 +23,5 @@ bash -c "
     python preprocess_swebench.py;
 
     ray start --head --node-ip-address 0.0.0.0 --num-gpus 8;
-    ray job submit --address='http://127.0.0.1:8265' --runtime-env-json='{\\\"pip\\\": [\\\"ray==2.12.0\\\", \\\"latex2sympy2\\\", \\\"timeout_decorator\\\"]}' -- /bin/bash train_ppo_swebench_1_node.sh
+    ray job submit --address='http://127.0.0.1:8265' --runtime-env-json='{\"pip\": [\"ray==2.12.0\", \"latex2sympy2\", \"timeout_decorator\"]}' -- /bin/bash train_ppo_swebench_1_node.sh
 "

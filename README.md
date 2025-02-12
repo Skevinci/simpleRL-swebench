@@ -12,7 +12,7 @@ salloc --nodelist=nlpgpu04 --gpus=6 --mem=400GB --cpus-per-gpu=4 # ensure number
 dockerd-rootless.sh &
 docker run --runtime=nvidia -it --rm --shm-size="10g" --cap-add=SYS_ADMIN -v $PWD:/openrlhf nvcr.io/nvidia/pytorch:24.07-py3 bash
 git clone https://github.com/Skevinci/simpleRL-swebench.git
-cd train
+cd simpleRL-swebench/train
 pip install -e .
 huggingface-cli download Qwen/Qwen2.5-Math-7B --local-dir /workspace/hdfs/model_hub
 ```

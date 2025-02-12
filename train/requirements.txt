@@ -20,5 +20,4 @@ transformers_stream_generator
 wandb
 wheel
 word2number
-difflib
 zss

@@ -612,7 +612,8 @@ def parse_patch_to_tree(patch):
             last_file = list(file_nodes.keys())[-1]
             file_nodes[last_file].addkid(hunk_node)
         elif line.startswith("+") or line.startswith("-"):
-            hunk_node.addkid(Node(line))
+            if "hunk_node" in locals():
+                hunk_node.addkid(Node(line))
 
     return root
 
@@ -649,7 +650,7 @@ def compute_patch_reward(gt_patch, gen_patch, alpha=0.7, beta=0.3):
 
 def is_valid_patch_format(patch):
     """Check if the patch is in the correct format."""
-    lines = patch_text.splitlines()
+    lines = patch.splitlines()
     return len(lines) > 1 and lines[0].startswith("<patch>") and lines[1].startswith("diff --git") and lines[-1].startswith("</patch>")
 
 def preprocess_swebench_response(sequence, answer):
@@ -660,12 +661,14 @@ def preprocess_swebench_response(sequence, answer):
         if stop_word in model_output:
             model_output = model_output.split(stop_word)[0].strip()
 
+    print("================== model_output ==================", model_output)
+    print("================== answer ==================", answer)
     box_match = compute_patch_reward(model_output, answer)
         
     if "boxed" not in model_output:
         box_match = -1.0
         
-    print("box_match", box_match)
+    print("================== box_match =================", box_match)
 
     return "", box_match
 
@@ -3755,21 +3758,20 @@ class RemoteExperienceMakerBOX(NaiveExperienceMakerBOX):
         packed_seq_lens = samples.packed_seq_lens
         answers = samples.answers
 
-        print("============== start ==============")
+        # print("============== start ==============")
         start = time.time()
         sequences_cpu, attention_mask_cpu = (
             sequences.to("cpu"),
             attention_mask.to("cpu"),
         )
-        ray.logger.info(f"sequences_len: {sequences_cpu.shape}")
-        print("============= sequences_cpu =============")
+        # ray.logger.info(f"sequences_len: {sequences_cpu.shape}")
+        # print("============= sequences_cpu =============")
         # init log probs
         base_action_log_probs_ref = self.initial_model.forward.remote(
             sequences_cpu, num_actions, attention_mask_cpu, packed_seq_lens=packed_seq_lens
         )
         # values
         # ray.logger.info("sent initial model forward request")
-        print("========== sent initial model forward request ==========")
         if self.critic is not None:
             value_ref = self.critic.forward.remote(
                 sequences_cpu, num_actions, attention_mask_cpu, packed_seq_lens=packed_seq_lens
@@ -3782,14 +3784,12 @@ class RemoteExperienceMakerBOX(NaiveExperienceMakerBOX):
             value_ref = ray.put(None)
         
         # ray.logger.info("sent value model forward request")
-        print("========== sent value model forward request ==========")
         if self.strategy.args.colocate_actor_ref:
             ray.get([base_action_log_probs_ref])
             ray.get([self.initial_model.empty_cache.remote()])
 
         # rewards
         r_refs = []
-        print("answers", len(answers))
         # print("sequences_cpu", sequences_cpu.shape)
         # support remote RM API with ray
         if not self.remote_rm_url:

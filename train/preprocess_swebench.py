@@ -58,7 +58,7 @@ print(f"Number of examples in SWE-bench_oracle: {len(swebench)}")
 
 need_import = 0
 num_instances = 0
-with open("/nlp/data/sikaili/simpleRL-reason/train/data/swebench_oracle.jsonl", "w") as f:
+with open("data/swebench_oracle.json", "w") as f:
     for idx, datum in enumerate(tqdm(swebench, desc="Process SWE-bench_oracle")):
         # if idx > 10:
         #     break
@@ -92,5 +92,6 @@ with open("/nlp/data/sikaili/simpleRL-reason/train/data/swebench_oracle.jsonl", 
         
         print(json.dumps(output_dict), file=f, flush=True)
         
+print("Finished processing SWE-bench_oracle.")
 print(f"Number of examples that need import: {need_import}")
 print(f"Number of remain instances: {num_instances}")

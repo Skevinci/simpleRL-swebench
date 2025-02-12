@@ -3661,6 +3661,7 @@ class RemoteExperienceMakerBOX(NaiveExperienceMakerBOX):
 
     @torch.no_grad()
     def make_experience_list(self, all_prompts: Union[str, List[str]], all_answers:  Union[str, List[str]], **generate_kwargs) -> List[Experience]:
+        print("**************** RemoteExperienceMakerBOX.make_experience_list ****************")
         if self.strategy.args.perf:
             self.perf_stats = {
                 "generate_time": 0,

@@ -24,6 +24,8 @@ from openrlhf.trainer.ppo_utils.qwen_math_eval_toolkit.parser import extract_ans
 logger = init_logger(__name__)
 
 import re
+import difflib
+from zss import simple_distance, Node
 def preprocess_orm800k_response(sequence):
     temp_query = ""
     temp_response = ""
@@ -580,34 +582,9 @@ def preprocess_box_response_for_qwen_prompt(sequence, answer):
     for stop_word in stop_words:
         if stop_word in model_output:
             model_output = model_output.split(stop_word)[0].strip()
+    print("================== model_output ==================", model_output)
+    print("================== answer ==================", answer)
     extract_answer = qwen_extract_answer(model_output, data_name="math") #TODO: check the data_name, hard code here for now
-    
-    
-    # temp_query = ""
-    # temp_response = ""
-
-    # temp_query = sequence.split("ASSISTANT:\n")[0]
-
-    # temp_response = sequence.split("**Final Answer**")[-1]
-    
-    # pattern = r'\\boxed\{(.*?)\}\s*\\\]'
-
-    # # 使用 re.DOTALL 确保能匹配跨行文本
-    # match = re.search(pattern, temp_response)
-    # #match = re.search(pattern, temp_response)
-    # if match:
-    #     temp_answer = match.group(1)
-    # else:
-    #     temp_answer = "none"
-
-    # #temp_answer = temp_response.split("\n\n# Answer\n\n")[-1]
-    # #temp_response = sequence.split("<|reserved_special_token_0|>The final answer is:")[0]
-
-    # #response_list = temp_response.split("<|reserved_special_token_0|>")
-
-    # processed_solution = temp_response + "\n\n# Answer\n\n" + temp_answer + "<|reserved_special_token_0|>"
-
-    # processed_solution = re.sub(r"<\|end_of_text\|>", "", processed_solution)
     
     if qwen_math_equal_subprocess(prediction=extract_answer, reference=answer):
         box_match = 1.0
@@ -620,6 +597,67 @@ def preprocess_box_response_for_qwen_prompt(sequence, answer):
 
     return "", box_match
 
+def parse_patch_to_tree(patch):
+    """Converts a patch file to a tree structure for comparison."""
+    root = Node("patch")
+    file_nodes = {}
+
+    for line in patch.split("\n"):
+        if line.startswith("diff --git"):
+            filename = line.split()[-1]
+            file_nodes[filename] = Node(filename)
+            root.addkid(file_nodes[filename])
+        elif line.startswith("@@"):
+            hunk_node = Node(line)
+            last_file = list(file_nodes.keys())[-1]
+            file_nodes[last_file].addkid(hunk_node)
+        elif line.startswith("+") or line.startswith("-"):
+            hunk_node.addkid(Node(line))
+
+    return root
+
+def compute_tree_similarity(tree1, tree2):
+    """Computes edit distance between two trees. (0 to 1)"""
+    return 1 / (1 + simple_distance(tree1, tree2))
+
+def compute_line_similarity(gt_patch, gen_patch):
+    """Computes line-based similarity using difflib. (0 to 1)"""
+    gt_lines = gt_patch.splitlines()
+    gen_lines = gen_patch.splitlines()
+    
+    matcher = difflib.SequenceMatcher(None, gt_lines, gen_lines)
+    return matcher.ratio()
+
+def normalize_reward(reward):
+    """Normalize reward from [0,1] to [-0.5,1]"""
+    return 1.5 * reward - 0.5
+
+def compute_patch_reward(gt_patch, gen_patch, alpha=0.7, beta=0.3):
+    """Computes the final reward score."""
+    tree1 = parse_patch_to_tree(gt_patch)
+    tree2 = parse_patch_to_tree(gen_patch)
+    
+    S_tree = compute_tree_similarity(tree1, tree2)
+    S_line = compute_line_similarity(gt_patch, gen_patch)
+    
+    reward = alpha * S_tree + beta * S_line
+    return reward
+
+def preprocess_swebench_response(sequence, answer):
+# breakpoint()
+    model_output= re.sub(r'^.*?<\|im_start\|>assistant', '<|im_start|>assistant', sequence, flags=re.DOTALL,count = 1)
+    stop_words = ["</s>", "<|im_end|>", "<|endoftext|>"] 
+    for stop_word in stop_words:
+        if stop_word in model_output:
+            model_output = model_output.split(stop_word)[0].strip()
+
+    box_match = compute_patch_reward(model_output, answer)
+        
+    if "boxed" not in model_output:
+        box_match = -1.0
+        
+
+    return "", box_match
 
 
 def preprocess_orm_reward(queries, tokenizer, **generate_kwargs):
@@ -3753,13 +3791,9 @@ class RemoteExperienceMakerBOX(NaiveExperienceMakerBOX):
             box_match_list = []
             #math_equal_list = []
             for query, answer in zip(queries, answers):
-                #temp_query = query
-                #query, box_match = preprocess_box_responsev1(query, answer)
-                
-                ## I will change the response rule-match reward. For my own experiment. By weihao, 12.25 2024
-                # query, box_match = preprocess_box_responsev4(query, answer) # original processing func 
                 query, box_match = preprocess_box_response_for_qwen_prompt(query, answer)
-                #query_v1, equal_match = preprocess_box_responsev1(temp_query, answer)
+                # query, box_match = preprocess_swebench_response(query, answer)
+
                 processed_queries.append(query)
                 box_match_list.append(box_match)
                 #math_equal_list.append(equal_match)

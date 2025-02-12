@@ -1,0 +1,317 @@
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 24.07 (build 100464919)
+PyTorch Version 2.4.0a0+3bcc3cd
+Container image Copyright (c) 2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Obtaining file:///workspace/simpleRL-swebench/train
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting accelerate (from openrlhf==0.5.0)
+  Downloading accelerate-1.3.0-py3-none-any.whl.metadata (19 kB)
+Collecting bitsandbytes (from openrlhf==0.5.0)
+  Downloading bitsandbytes-0.45.2-py3-none-manylinux_2_24_x86_64.whl.metadata (5.8 kB)
+Collecting datasets (from openrlhf==0.5.0)
+  Downloading datasets-3.2.0-py3-none-any.whl.metadata (20 kB)
+Collecting deepspeed==0.15.0 (from openrlhf==0.5.0)
+  Downloading deepspeed-0.15.0.tar.gz (1.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 29.1 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: einops in /usr/local/lib/python3.10/dist-packages (from openrlhf==0.5.0) (0.8.0)
+Collecting flash-attn==2.6.1 (from openrlhf==0.5.0)
+  Downloading flash_attn-2.6.1.tar.gz (2.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 29.0 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting isort (from openrlhf==0.5.0)
+  Downloading isort-6.0.0-py3-none-any.whl.metadata (11 kB)
+Collecting jsonlines (from openrlhf==0.5.0)
+  Downloading jsonlines-4.0.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting loralib (from openrlhf==0.5.0)
+  Downloading loralib-0.1.2-py3-none-any.whl.metadata (15 kB)
+Collecting optimum (from openrlhf==0.5.0)
+  Downloading optimum-1.24.0-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from openrlhf==0.5.0) (24.0)
+Collecting peft (from openrlhf==0.5.0)
+  Downloading peft-0.14.0-py3-none-any.whl.metadata (13 kB)
+Collecting ray==2.12.0 (from ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading ray-2.12.0-cp310-cp310-manylinux2014_x86_64.whl.metadata (13 kB)
+Requirement already satisfied: tensorboard in /usr/local/lib/python3.10/dist-packages (from openrlhf==0.5.0) (2.9.0)
+Requirement already satisfied: torch in /usr/local/lib/python3.10/dist-packages (from openrlhf==0.5.0) (2.4.0a0+3bcc3cddb5.nv24.7)
+Collecting torchmetrics (from openrlhf==0.5.0)
+  Downloading torchmetrics-1.6.1-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from openrlhf==0.5.0) (4.66.4)
+Collecting transformers==4.46.1 (from openrlhf==0.5.0)
+  Downloading transformers-4.46.1-py3-none-any.whl.metadata (44 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.1/44.1 kB 30.1 MB/s eta 0:00:00
+Collecting transformers_stream_generator (from openrlhf==0.5.0)
+  Downloading transformers-stream-generator-0.0.5.tar.gz (13 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting wandb (from openrlhf==0.5.0)
+  Downloading wandb-0.19.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from openrlhf==0.5.0) (0.43.0)
+Collecting word2number (from openrlhf==0.5.0)
+  Downloading word2number-1.1.zip (9.7 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting hjson (from deepspeed==0.15.0->openrlhf==0.5.0)
+  Downloading hjson-3.1.0-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: ninja in /usr/local/lib/python3.10/dist-packages (from deepspeed==0.15.0->openrlhf==0.5.0) (1.11.1.1)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from deepspeed==0.15.0->openrlhf==0.5.0) (1.24.4)
+Requirement already satisfied: psutil in /usr/local/lib/python3.10/dist-packages (from deepspeed==0.15.0->openrlhf==0.5.0) (5.9.8)
+Collecting py-cpuinfo (from deepspeed==0.15.0->openrlhf==0.5.0)
+  Downloading py_cpuinfo-9.0.0-py3-none-any.whl.metadata (794 bytes)
+Requirement already satisfied: pydantic>=2.0.0 in /usr/local/lib/python3.10/dist-packages (from deepspeed==0.15.0->openrlhf==0.5.0) (2.8.2)
+Collecting nvidia-ml-py (from deepspeed==0.15.0->openrlhf==0.5.0)
+  Downloading nvidia_ml_py-12.570.86-py3-none-any.whl.metadata (8.7 kB)
+Requirement already satisfied: click>=7.0 in /usr/local/lib/python3.10/dist-packages (from ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (8.1.7)
+Requirement already satisfied: filelock in /usr/local/lib/python3.10/dist-packages (from ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (3.15.4)
+Requirement already satisfied: jsonschema in /usr/local/lib/python3.10/dist-packages (from ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (4.23.0)
+Requirement already satisfied: msgpack<2.0.0,>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (1.0.8)
+Requirement already satisfied: protobuf!=3.19.5,>=3.15.3 in /usr/local/lib/python3.10/dist-packages (from ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (4.24.4)
+Requirement already satisfied: pyyaml in /usr/local/lib/python3.10/dist-packages (from ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (6.0.1)
+Requirement already satisfied: aiosignal in /usr/local/lib/python3.10/dist-packages (from ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (1.3.1)
+Requirement already satisfied: frozenlist in /usr/local/lib/python3.10/dist-packages (from ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (1.4.1)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (2.32.3)
+Requirement already satisfied: aiohttp>=3.7 in /usr/local/lib/python3.10/dist-packages (from ray[default]==2.12.0->openrlhf==0.5.0) (3.9.5)
+Collecting aiohttp-cors (from ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading aiohttp_cors-0.7.0-py3-none-any.whl.metadata (20 kB)
+Collecting colorful (from ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading colorful-0.5.6-py2.py3-none-any.whl.metadata (16 kB)
+Collecting py-spy>=0.2.0 (from ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading py_spy-0.4.0-py2.py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.whl.metadata (16 kB)
+Collecting opencensus (from ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading opencensus-0.11.4-py2.py3-none-any.whl.metadata (12 kB)
+Requirement already satisfied: prometheus-client>=0.7.1 in /usr/local/lib/python3.10/dist-packages (from ray[default]==2.12.0->openrlhf==0.5.0) (0.20.0)
+Requirement already satisfied: smart-open in /usr/local/lib/python3.10/dist-packages (from ray[default]==2.12.0->openrlhf==0.5.0) (7.0.4)
+Collecting virtualenv!=20.21.1,>=20.0.24 (from ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading virtualenv-20.29.2-py3-none-any.whl.metadata (4.5 kB)
+Requirement already satisfied: grpcio>=1.42.0 in /usr/local/lib/python3.10/dist-packages (from ray[default]==2.12.0->openrlhf==0.5.0) (1.62.1)
+Collecting memray (from ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading memray-1.15.0-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (19 kB)
+Collecting huggingface-hub<1.0,>=0.23.2 (from transformers==4.46.1->openrlhf==0.5.0)
+  Downloading huggingface_hub-0.28.1-py3-none-any.whl.metadata (13 kB)
+Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.10/dist-packages (from transformers==4.46.1->openrlhf==0.5.0) (2024.5.15)
+Collecting safetensors>=0.4.1 (from transformers==4.46.1->openrlhf==0.5.0)
+  Downloading safetensors-0.5.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+Collecting tokenizers<0.21,>=0.20 (from transformers==4.46.1->openrlhf==0.5.0)
+  Downloading tokenizers-0.20.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Requirement already satisfied: typing-extensions>=4.8.0 in /usr/local/lib/python3.10/dist-packages (from torch->openrlhf==0.5.0) (4.12.0)
+Requirement already satisfied: sympy in /usr/local/lib/python3.10/dist-packages (from torch->openrlhf==0.5.0) (1.13.0)
+Requirement already satisfied: networkx in /usr/local/lib/python3.10/dist-packages (from torch->openrlhf==0.5.0) (3.3)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from torch->openrlhf==0.5.0) (3.1.4)
+Requirement already satisfied: fsspec in /usr/local/lib/python3.10/dist-packages (from torch->openrlhf==0.5.0) (2024.5.0)
+Collecting pyarrow>=15.0.0 (from datasets->openrlhf==0.5.0)
+  Downloading pyarrow-19.0.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting dill<0.3.9,>=0.3.0 (from datasets->openrlhf==0.5.0)
+  Downloading dill-0.3.8-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from datasets->openrlhf==0.5.0) (2.2.1)
+Collecting xxhash (from datasets->openrlhf==0.5.0)
+  Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting multiprocess<0.70.17 (from datasets->openrlhf==0.5.0)
+  Downloading multiprocess-0.70.16-py310-none-any.whl.metadata (7.2 kB)
+Requirement already satisfied: attrs>=19.2.0 in /usr/local/lib/python3.10/dist-packages (from jsonlines->openrlhf==0.5.0) (23.2.0)
+Requirement already satisfied: absl-py>=0.4 in /usr/local/lib/python3.10/dist-packages (from tensorboard->openrlhf==0.5.0) (2.1.0)
+Requirement already satisfied: google-auth<3,>=1.6.3 in /usr/local/lib/python3.10/dist-packages (from tensorboard->openrlhf==0.5.0) (2.32.0)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in /usr/local/lib/python3.10/dist-packages (from tensorboard->openrlhf==0.5.0) (0.4.6)
+Requirement already satisfied: markdown>=2.6.8 in /usr/local/lib/python3.10/dist-packages (from tensorboard->openrlhf==0.5.0) (3.6)
+Requirement already satisfied: setuptools>=41.0.0 in /usr/local/lib/python3.10/dist-packages (from tensorboard->openrlhf==0.5.0) (68.2.2)
+Requirement already satisfied: tensorboard-data-server<0.7.0,>=0.6.0 in /usr/local/lib/python3.10/dist-packages (from tensorboard->openrlhf==0.5.0) (0.6.1)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in /usr/local/lib/python3.10/dist-packages (from tensorboard->openrlhf==0.5.0) (1.8.1)
+Requirement already satisfied: werkzeug>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from tensorboard->openrlhf==0.5.0) (3.0.3)
+Requirement already satisfied: lightning-utilities>=0.8.0 in /usr/local/lib/python3.10/dist-packages/lightning_utilities-0.11.3.post0-py3.10.egg (from torchmetrics->openrlhf==0.5.0) (0.11.3.post0)
+Collecting docker-pycreds>=0.4.0 (from wandb->openrlhf==0.5.0)
+  Downloading docker_pycreds-0.4.0-py2.py3-none-any.whl.metadata (1.8 kB)
+Collecting gitpython!=3.1.29,>=1.0.0 (from wandb->openrlhf==0.5.0)
+  Downloading GitPython-3.1.44-py3-none-any.whl.metadata (13 kB)
+Requirement already satisfied: platformdirs in /usr/local/lib/python3.10/dist-packages (from wandb->openrlhf==0.5.0) (4.2.2)
+Collecting sentry-sdk>=2.0.0 (from wandb->openrlhf==0.5.0)
+  Downloading sentry_sdk-2.20.0-py2.py3-none-any.whl.metadata (10 kB)
+Collecting setproctitle (from wandb->openrlhf==0.5.0)
+  Downloading setproctitle-1.3.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.10/dist-packages (from aiohttp>=3.7->ray[default]==2.12.0->openrlhf==0.5.0) (6.0.5)
+Requirement already satisfied: yarl<2.0,>=1.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp>=3.7->ray[default]==2.12.0->openrlhf==0.5.0) (1.9.4)
+Requirement already satisfied: async-timeout<5.0,>=4.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp>=3.7->ray[default]==2.12.0->openrlhf==0.5.0) (4.0.3)
+Requirement already satisfied: six>=1.4.0 in /usr/local/lib/python3.10/dist-packages (from docker-pycreds>=0.4.0->wandb->openrlhf==0.5.0) (1.16.0)
+Collecting gitdb<5,>=4.0.1 (from gitpython!=3.1.29,>=1.0.0->wandb->openrlhf==0.5.0)
+  Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /usr/local/lib/python3.10/dist-packages (from google-auth<3,>=1.6.3->tensorboard->openrlhf==0.5.0) (5.3.3)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /usr/local/lib/python3.10/dist-packages (from google-auth<3,>=1.6.3->tensorboard->openrlhf==0.5.0) (0.4.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in /usr/local/lib/python3.10/dist-packages (from google-auth<3,>=1.6.3->tensorboard->openrlhf==0.5.0) (4.9)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /usr/local/lib/python3.10/dist-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard->openrlhf==0.5.0) (2.0.0)
+Requirement already satisfied: annotated-types>=0.4.0 in /usr/local/lib/python3.10/dist-packages (from pydantic>=2.0.0->deepspeed==0.15.0->openrlhf==0.5.0) (0.7.0)
+Requirement already satisfied: pydantic-core==2.20.1 in /usr/local/lib/python3.10/dist-packages (from pydantic>=2.0.0->deepspeed==0.15.0->openrlhf==0.5.0) (2.20.1)
+Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests->ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests->ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (3.7)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests->ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (2024.7.4)
+Collecting distlib<1,>=0.3.7 (from virtualenv!=20.21.1,>=20.0.24->ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading distlib-0.3.9-py2.py3-none-any.whl.metadata (5.2 kB)
+Requirement already satisfied: MarkupSafe>=2.1.1 in /usr/local/lib/python3.10/dist-packages (from werkzeug>=1.0.1->tensorboard->openrlhf==0.5.0) (2.1.5)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /usr/local/lib/python3.10/dist-packages (from jsonschema->ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (2023.12.1)
+Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.10/dist-packages (from jsonschema->ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (0.35.1)
+Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.10/dist-packages (from jsonschema->ray==2.12.0->ray[default]==2.12.0->openrlhf==0.5.0) (0.19.0)
+Requirement already satisfied: rich>=11.2.0 in /usr/local/lib/python3.10/dist-packages (from memray->ray[default]==2.12.0->openrlhf==0.5.0) (13.7.1)
+Collecting textual>=0.41.0 (from memray->ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading textual-1.0.0-py3-none-any.whl.metadata (9.0 kB)
+Collecting opencensus-context>=0.1.3 (from opencensus->ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading opencensus_context-0.1.3-py2.py3-none-any.whl.metadata (3.3 kB)
+Collecting google-api-core<3.0.0,>=1.0.0 (from opencensus->ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading google_api_core-2.24.1-py3-none-any.whl.metadata (3.0 kB)
+Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas->datasets->openrlhf==0.5.0) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas->datasets->openrlhf==0.5.0) (2024.1)
+Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.10/dist-packages (from pandas->datasets->openrlhf==0.5.0) (2024.1)
+Requirement already satisfied: wrapt in /usr/local/lib/python3.10/dist-packages (from smart-open->ray[default]==2.12.0->openrlhf==0.5.0) (1.16.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy->torch->openrlhf==0.5.0) (1.3.0)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython!=3.1.29,>=1.0.0->wandb->openrlhf==0.5.0)
+  Downloading smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
+Collecting googleapis-common-protos<2.0.dev0,>=1.56.2 (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading googleapis_common_protos-1.66.0-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting proto-plus<2.0.0dev,>=1.22.3 (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading proto_plus-1.26.0-py3-none-any.whl.metadata (2.2 kB)
+Requirement already satisfied: pyasn1<0.7.0,>=0.4.6 in /usr/local/lib/python3.10/dist-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard->openrlhf==0.5.0) (0.6.0)
+Requirement already satisfied: oauthlib>=3.0.0 in /usr/local/lib/python3.10/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard->openrlhf==0.5.0) (3.2.2)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.10/dist-packages (from rich>=11.2.0->memray->ray[default]==2.12.0->openrlhf==0.5.0) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.10/dist-packages (from rich>=11.2.0->memray->ray[default]==2.12.0->openrlhf==0.5.0) (2.18.0)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.10/dist-packages (from markdown-it-py>=2.2.0->rich>=11.2.0->memray->ray[default]==2.12.0->openrlhf==0.5.0) (0.1.2)
+Requirement already satisfied: mdit-py-plugins in /usr/local/lib/python3.10/dist-packages (from markdown-it-py[linkify,plugins]>=2.1.0->textual>=0.41.0->memray->ray[default]==2.12.0->openrlhf==0.5.0) (0.4.1)
+Collecting linkify-it-py<3,>=1 (from markdown-it-py[linkify,plugins]>=2.1.0->textual>=0.41.0->memray->ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading linkify_it_py-2.0.3-py3-none-any.whl.metadata (8.5 kB)
+Collecting uc-micro-py (from linkify-it-py<3,>=1->markdown-it-py[linkify,plugins]>=2.1.0->textual>=0.41.0->memray->ray[default]==2.12.0->openrlhf==0.5.0)
+  Downloading uc_micro_py-1.0.3-py3-none-any.whl.metadata (2.0 kB)
+Downloading ray-2.12.0-cp310-cp310-manylinux2014_x86_64.whl (65.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.3/65.3 MB 33.4 MB/s eta 0:00:00
+Downloading transformers-4.46.1-py3-none-any.whl (10.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 35.1 MB/s eta 0:00:00
+Downloading accelerate-1.3.0-py3-none-any.whl (336 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 336.6/336.6 kB 27.3 MB/s eta 0:00:00
+Downloading bitsandbytes-0.45.2-py3-none-manylinux_2_24_x86_64.whl (69.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.7/69.7 MB 37.0 MB/s eta 0:00:00
+Downloading datasets-3.2.0-py3-none-any.whl (480 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 480.6/480.6 kB 25.5 MB/s eta 0:00:00
+Downloading isort-6.0.0-py3-none-any.whl (94 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.1/94.1 kB 65.9 MB/s eta 0:00:00
+Downloading jsonlines-4.0.0-py3-none-any.whl (8.7 kB)
+Downloading loralib-0.1.2-py3-none-any.whl (10 kB)
+Downloading optimum-1.24.0-py3-none-any.whl (433 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 433.6/433.6 kB 27.9 MB/s eta 0:00:00
+Downloading peft-0.14.0-py3-none-any.whl (374 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 374.8/374.8 kB 38.7 MB/s eta 0:00:00
+Downloading torchmetrics-1.6.1-py3-none-any.whl (927 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 927.3/927.3 kB 39.1 MB/s eta 0:00:00
+Downloading wandb-0.19.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.9/20.9 MB 34.0 MB/s eta 0:00:00
+Downloading dill-0.3.8-py3-none-any.whl (116 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 116.3/116.3 kB 116.9 MB/s eta 0:00:00
+Downloading docker_pycreds-0.4.0-py2.py3-none-any.whl (9.0 kB)
+Downloading GitPython-3.1.44-py3-none-any.whl (207 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 207.6/207.6 kB 28.5 MB/s eta 0:00:00
+Downloading huggingface_hub-0.28.1-py3-none-any.whl (464 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 464.1/464.1 kB 43.7 MB/s eta 0:00:00
+Downloading multiprocess-0.70.16-py310-none-any.whl (134 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.8/134.8 kB 29.8 MB/s eta 0:00:00
+Downloading py_spy-0.4.0-py2.py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.whl (2.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.7/2.7 MB 32.3 MB/s eta 0:00:00
+Downloading pyarrow-19.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (42.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.1/42.1 MB 35.7 MB/s eta 0:00:00
+Downloading safetensors-0.5.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (461 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 462.0/462.0 kB 23.8 MB/s eta 0:00:00
+Downloading sentry_sdk-2.20.0-py2.py3-none-any.whl (322 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 322.6/322.6 kB 45.3 MB/s eta 0:00:00
+Downloading tokenizers-0.20.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 36.5 MB/s eta 0:00:00
+Downloading virtualenv-20.29.2-py3-none-any.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 32.2 MB/s eta 0:00:00
+Downloading aiohttp_cors-0.7.0-py3-none-any.whl (27 kB)
+Downloading colorful-0.5.6-py2.py3-none-any.whl (201 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 201.4/201.4 kB 28.1 MB/s eta 0:00:00
+Downloading hjson-3.1.0-py3-none-any.whl (54 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.0/54.0 kB 65.6 MB/s eta 0:00:00
+Downloading memray-1.15.0-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (8.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 37.1 MB/s eta 0:00:00
+Downloading nvidia_ml_py-12.570.86-py3-none-any.whl (44 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.4/44.4 kB 196.4 MB/s eta 0:00:00
+Downloading opencensus-0.11.4-py2.py3-none-any.whl (128 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 128.2/128.2 kB 24.0 MB/s eta 0:00:00
+Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Downloading setproctitle-1.3.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (30 kB)
+Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 194.1/194.1 kB 21.4 MB/s eta 0:00:00
+Downloading distlib-0.3.9-py2.py3-none-any.whl (468 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 469.0/469.0 kB 31.6 MB/s eta 0:00:00
+Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 84.9 MB/s eta 0:00:00
+Downloading google_api_core-2.24.1-py3-none-any.whl (160 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 160.1/160.1 kB 23.0 MB/s eta 0:00:00
+Downloading opencensus_context-0.1.3-py2.py3-none-any.whl (5.1 kB)
+Downloading textual-1.0.0-py3-none-any.whl (660 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 660.5/660.5 kB 31.5 MB/s eta 0:00:00
+Downloading googleapis_common_protos-1.66.0-py2.py3-none-any.whl (221 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.7/221.7 kB 28.3 MB/s eta 0:00:00
+Downloading proto_plus-1.26.0-py3-none-any.whl (50 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.2/50.2 kB 41.7 MB/s eta 0:00:00
+Downloading smmap-5.0.2-py3-none-any.whl (24 kB)
+Downloading linkify_it_py-2.0.3-py3-none-any.whl (19 kB)
+Downloading uc_micro_py-1.0.3-py3-none-any.whl (6.2 kB)
+Building wheels for collected packages: openrlhf, deepspeed, flash-attn, transformers_stream_generator, word2number
+  Building editable for openrlhf (pyproject.toml): started
+  Building editable for openrlhf (pyproject.toml): finished with status 'done'
+  Created wheel for openrlhf: filename=openrlhf-0.5.0-0.editable-py3-none-any.whl size=9747 sha256=817002790491aeee5c853f358659d4d910a3223f208d00fcfef1005014b6aa2e
+  Stored in directory: /tmp/pip-ephem-wheel-cache-6d2b7lq4/wheels/dc/6c/8d/2965fd3a9fbd2c9795221c5247dd05589758e834ff0668ae63
+  Building wheel for deepspeed (setup.py): started
+  Building wheel for deepspeed (setup.py): finished with status 'done'
+  Created wheel for deepspeed: filename=deepspeed-0.15.0-py3-none-any.whl size=1483707 sha256=cab395a239c3604dc1c17a59ef1cdc4b7c16f65da08f782ca63e116dfd51bd4b
+  Stored in directory: /tmp/pip-ephem-wheel-cache-6d2b7lq4/wheels/46/5a/dd/2f36986baec22867dab84e6176db30353ef54e7415cce5f2e0
+  Building wheel for flash-attn (setup.py): started
+  Building wheel for flash-attn (setup.py): finished with status 'done'
+  Created wheel for flash-attn: filename=flash_attn-2.6.1-cp310-cp310-linux_x86_64.whl size=198469920 sha256=f60a6af22f14861a83dd8107698e876716f6b5a57458ce333dfdca27c04b5c6e
+  Stored in directory: /tmp/pip-ephem-wheel-cache-6d2b7lq4/wheels/91/6a/38/f0faa036b4ac73a73247386f1ab1bb4cb4f6e72e6861a779f1
+  Building wheel for transformers_stream_generator (setup.py): started
+  Building wheel for transformers_stream_generator (setup.py): finished with status 'done'
+  Created wheel for transformers_stream_generator: filename=transformers_stream_generator-0.0.5-py3-none-any.whl size=12425 sha256=abbb65a81dee34d1a333dac4c9ac6cad401027d67e508e9113cc9fb4f12b204b
+  Stored in directory: /tmp/pip-ephem-wheel-cache-6d2b7lq4/wheels/95/4a/90/140f7b67d125906f6a165f38aad212ecb4a695ad0d87582437
+  Building wheel for word2number (setup.py): started
+  Building wheel for word2number (setup.py): finished with status 'done'
+  Created wheel for word2number: filename=word2number-1.1-py3-none-any.whl size=5566 sha256=3a1ab2875e358e85645d768b70384d1bdf551ff4c6d40f2d6231492c44dfd210
+  Stored in directory: /tmp/pip-ephem-wheel-cache-6d2b7lq4/wheels/84/ff/26/d3cfbd971e96c5aa3737ecfced81628830d7359b55fbb8ca3b
+Successfully built openrlhf deepspeed flash-attn transformers_stream_generator word2number
+Installing collected packages: word2number, py-spy, py-cpuinfo, opencensus-context, nvidia-ml-py, hjson, distlib, colorful, xxhash, virtualenv, uc-micro-py, smmap, setproctitle, sentry-sdk, safetensors, pyarrow, proto-plus, loralib, jsonlines, isort, googleapis-common-protos, docker-pycreds, dill, multiprocess, linkify-it-py, huggingface-hub, gitdb, torchmetrics, tokenizers, google-api-core, gitpython, flash-attn, deepspeed, bitsandbytes, aiohttp-cors, accelerate, wandb, transformers, textual, ray, opencensus, datasets, transformers_stream_generator, peft, optimum, memray, openrlhf
+  Attempting uninstall: pyarrow
+    Found existing installation: pyarrow 14.0.2
+    Uninstalling pyarrow-14.0.2:
+      Successfully uninstalled pyarrow-14.0.2
+  Attempting uninstall: flash-attn
+    Found existing installation: flash-attn 2.4.2
+    Uninstalling flash-attn-2.4.2:
+      Successfully uninstalled flash-attn-2.4.2
+Successfully installed accelerate-1.3.0 aiohttp-cors-0.7.0 bitsandbytes-0.45.2 colorful-0.5.6 datasets-3.2.0 deepspeed-0.15.0 dill-0.3.8 distlib-0.3.9 docker-pycreds-0.4.0 flash-attn-2.6.1 gitdb-4.0.12 gitpython-3.1.44 google-api-core-2.24.1 googleapis-common-protos-1.66.0 hjson-3.1.0 huggingface-hub-0.28.1 isort-6.0.0 jsonlines-4.0.0 linkify-it-py-2.0.3 loralib-0.1.2 memray-1.15.0 multiprocess-0.70.16 nvidia-ml-py-12.570.86 opencensus-0.11.4 opencensus-context-0.1.3 openrlhf-0.5.0 optimum-1.24.0 peft-0.14.0 proto-plus-1.26.0 py-cpuinfo-9.0.0 py-spy-0.4.0 pyarrow-19.0.0 ray-2.12.0 safetensors-0.5.2 sentry-sdk-2.20.0 setproctitle-1.3.4 smmap-5.0.2 textual-1.0.0 tokenizers-0.20.3 torchmetrics-1.6.1 transformers-4.46.1 transformers_stream_generator-0.0.5 uc-micro-py-1.0.3 virtualenv-20.29.2 wandb-0.19.6 word2number-1.1 xxhash-3.5.0

@@ -12,4 +12,16 @@ dockerd-rootless.sh &
 sleep 10
 
 docker run --runtime=nvidia --rm --shm-size="10g" --cap-add=SYS_ADMIN -v /nlp/data/sikaili:/openrlhf nvcr.io/nvidia/pytorch:24.07-py3 \
-bash -c "git clone https://github.com/Skevinci/simpleRL-swebench.git && cd simpleRL-swebench/train && pip install -e . && huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-7B --local-dir /workspace/hdfs/model_hub && python preprocess_swebench.py && ray start --head --node-ip-address 0.0.0.0 --num-gpus 6 && ray job submit --address='http://127.0.0.1:8265' --runtime-env-json='{\\\"pip\\\": [\\\"ray==2.12.0\\\", \\\"latex2sympy2\\\", \\\"timeout_decorator\\\"]}' -- /bin/bash train_ppo_swebench_1_node.sh"
+bash -c "
+    git clone https://github.com/Skevinci/simpleRL-swebench.git;
+
+    cd simpleRL-swebench/train;
+    pip install -e .;
+
+    huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-7B --local-dir /workspace/hdfs/model_hub;
+
+    python preprocess_swebench.py;
+
+    ray start --head --node-ip-address 0.0.0.0 --num-gpus 6;
+    ray job submit --address='http://127.0.0.1:8265' --runtime-env-json='{\\\"pip\\\": [\\\"ray==2.12.0\\\", \\\"latex2sympy2\\\", \\\"timeout_decorator\\\"]}' -- /bin/bash train_ppo_swebench_1_node.sh
+"

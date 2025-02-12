@@ -23,10 +23,10 @@ The minimum hardware requirement for training is 6 H/A100-80G GPUs (note: this c
 The training process leverages PPO with Ray and vLLM for acceleration. So firstly, you need to launch the ray cluster using the command below:
 ```bash
 # launch the master node of ray in container
-ray start --head --node-ip-address 0.0.0.0 --num-gpus 8
+ray start --head --node-ip-address 0.0.0.0 --num-gpus 6
 
 # if you want to launch ray on more nodes, use
-ray start --address {MASTER-NODE-ADDRESS}:6379  --num-gpus 8
+ray start --address {MASTER-NODE-ADDRESS}:6379  --num-gpus 6
 ```
 
 Next, submit the training job from the master node:

@@ -4,22 +4,22 @@ RUN_NAME=swebench_ppo
 
 python3 openrlhf/cli/train_ppo_ray_box.py \
     --ref_num_nodes 1 \
-    --ref_num_gpus_per_node 4 \
+    --ref_num_gpus_per_node 2 \
     --reward_num_nodes 0 \
     --reward_num_gpus_per_node 0 \
     --critic_num_nodes 1 \
     --critic_num_gpus_per_node 2 \
     --actor_num_nodes 1 \
-    --actor_num_gpus_per_node 4 \
+    --actor_num_gpus_per_node 2 \
     --colocate_actor_ref \
-    --vllm_num_engines 2 \
+    --vllm_num_engines 4 \
     --vllm_tensor_parallel_size 1 \
     --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \
     --micro_train_batch_size 2 \
     --train_batch_size 128 \
     --micro_rollout_batch_size 2 \
-    --rollout_batch_size 1024 \
+    --rollout_batch_size 256 \
     --temperature 0.6 \
     --n_samples_per_prompt 8 \
     --max_samples 100000 \

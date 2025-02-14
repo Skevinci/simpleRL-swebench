@@ -13,6 +13,7 @@ dockerd-rootless.sh &
 docker run --runtime=nvidia -it --rm --shm-size="10g" --cap-add=SYS_ADMIN -v $PWD:/openrlhf nvcr.io/nvidia/pytorch:24.07-py3 bash
 git clone https://github.com/Skevinci/simpleRL-swebench.git
 cd simpleRL-swebench/train
+pip install vllm==0.6.1
 pip install -e .
 huggingface-cli download Qwen/Qwen2.5-Math-7B --local-dir /workspace/hdfs/model_hub
 ```
@@ -51,11 +52,11 @@ Bash script for slurm:
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=docker
+#SBATCH --job-name=train
 #SBATCH --output=/nlp/data/sikaili/simpleRL-swebench/output/train_output.txt
 #SBATCH --error=/nlp/data/sikaili/simpleRL-swebench/output/train_error.txt
 #SBATCH --partition=p_nlp
-#SBATCH --gpus=6
+#SBATCH --gpus=8
 #SBATCH --nodelist=nlpgpu04
 #SBATCH --mem=400GB
 #SBATCH --cpus-per-gpu=4
@@ -64,6 +65,19 @@ dockerd-rootless.sh &
 sleep 10
 
 docker run --runtime=nvidia --rm --shm-size="10g" --cap-add=SYS_ADMIN -v /nlp/data/sikaili:/openrlhf nvcr.io/nvidia/pytorch:24.07-py3 \
-bash -c "git clone https://github.com/Skevinci/simpleRL-swebench.git && cd simpleRL-swebench/train && pip install -e . && huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-7B --local-dir /workspace/hdfs/model_hub && python preprocess_swebench.py && ray start --head --node-ip-address 0.0.0.0 --num-gpus 6 && ray job submit --address='http://127.0.0.1:8265' --runtime-env-json='{\\\"pip\\\": [\\\"ray==2.12.0\\\", \\\"latex2sympy2\\\", \\\"timeout_decorator\\\"]}' -- /bin/bash train_ppo_swebench_1_node.sh"
+bash -c "
+    git clone https://github.com/Skevinci/simpleRL-swebench.git;
+
+    cd simpleRL-swebench/train;
+    pip install vllm==0.6.1;
+    pip install -e .;
+
+    huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B --local-dir /workspace/hdfs/model_hub;
+
+    python preprocess_swebench.py;
+
+    ray start --head --node-ip-address 0.0.0.0 --num-gpus 8;
+    ray job submit --address='http://127.0.0.1:8265' --runtime-env-json='{\"pip\": [\"ray==2.12.0\", \"latex2sympy2\", \"timeout_decorator\"]}' -- /bin/bash train_ppo_swebench_1_node.sh
+"
 
 ```

@@ -16,6 +16,7 @@ bash -c "
     git clone https://github.com/Skevinci/simpleRL-swebench.git;
 
     cd simpleRL-swebench/train;
+    pip install vllm==0.6.1;
     pip install -e .;
 
     huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B --local-dir /workspace/hdfs/model_hub;

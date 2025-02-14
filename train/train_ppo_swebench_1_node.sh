@@ -8,11 +8,12 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --reward_num_nodes 0 \
     --reward_num_gpus_per_node 0 \
     --critic_num_nodes 1 \
-    --critic_num_gpus_per_node 4 \
+    --critic_num_gpus_per_node 2 \
     --actor_num_nodes 1 \
     --actor_num_gpus_per_node 4 \
     --colocate_actor_ref \
-    --vllm_num_engines 0 \
+    --vllm_num_engines 2 \
+    --vllm_tensor_parallel_size 1 \
     --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \
     --micro_train_batch_size 2 \
@@ -42,5 +43,4 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --use_wandb 354d09b784ba4b3a3159f7eabc57d851a14ef067 \
     --wandb_run_name $RUN_NAME \
     --ckpt_path $HDFS_HOME/checkpoints/$RUN_NAME  \
-    --max_ckpt_num 20000 \
-    #--vllm_tensor_parallel_size 1 \
+    --max_ckpt_num 20000 

@@ -1,194 +1,0 @@
-cpu-bind=MASK - nlpgpu04, task  0  0 [55651]: mask 0xff00ff00ff00ff set
-+ case "$1" in
-+ '[' -w /home1/s/sikaili/.docker/run ']'
-+ '[' -d /home1/s/sikaili ']'
-+ rootlesskit=
-+ for f in docker-rootlesskit rootlesskit
-+ command -v docker-rootlesskit
-+ for f in docker-rootlesskit rootlesskit
-+ command -v rootlesskit
-+ rootlesskit=rootlesskit
-+ break
-+ '[' -z rootlesskit ']'
-+ : vpnkit
-+ : ''
-+ : builtin
-+ : auto
-+ : auto
-+ net=vpnkit
-+ mtu=
-+ '[' -z vpnkit ']'
-+ '[' -z '' ']'
-+ mtu=1500
-+ dockerd=dockerd
-+ '[' -z '' ']'
-+ _DOCKERD_ROOTLESS_CHILD=1
-+ export _DOCKERD_ROOTLESS_CHILD
-++ id -u
-+ '[' 72922 = 0 ']'
-+ command -v selinuxenabled
-+ exec rootlesskit --net=vpnkit --mtu=1500 --slirp4netns-sandbox=auto --slirp4netns-seccomp=auto --disable-host-loopback --port-driver=builtin --copy-up=/etc --copy-up=/run --propagation=rslave /home1/s/sikaili/bin/dockerd-rootless.sh
-+ case "$1" in
-+ '[' -w /home1/s/sikaili/.docker/run ']'
-+ '[' -d /home1/s/sikaili ']'
-+ rootlesskit=
-+ for f in docker-rootlesskit rootlesskit
-+ command -v docker-rootlesskit
-+ for f in docker-rootlesskit rootlesskit
-+ command -v rootlesskit
-+ rootlesskit=rootlesskit
-+ break
-+ '[' -z rootlesskit ']'
-+ : vpnkit
-+ : ''
-+ : builtin
-+ : auto
-+ : auto
-+ net=vpnkit
-+ mtu=
-+ '[' -z vpnkit ']'
-+ '[' -z '' ']'
-+ mtu=1500
-+ dockerd=dockerd
-+ '[' -z 1 ']'
-+ '[' 1 = 1 ']'
-+ rm -f /run/docker /run/containerd /run/xtables.lock
-+ '[' -n '' ']'
-++ stat -c %T -f /etc
-+ '[' tmpfs = tmpfs ']'
-+ '[' -L /etc/ssl ']'
-++ realpath /etc/ssl
-+ realpath_etc_ssl=/etc/.ro985630815/ssl
-+ rm -f /etc/ssl
-+ mkdir /etc/ssl
-+ mount --rbind /etc/.ro985630815/ssl /etc/ssl
-+ exec dockerd
-time="2025-02-14T01:05:16.548987796-05:00" level=info msg="Starting up"
-time="2025-02-14T01:05:16.549146446-05:00" level=warning msg="Running in rootless mode. This mode has feature limitations."
-time="2025-02-14T01:05:16.549189725-05:00" level=info msg="Running with RootlessKit integration"
-time="2025-02-14T01:05:16.603168253-05:00" level=warning msg="could not change group /home1/s/sikaili/.docker/run/docker.sock to docker: group docker not found"
-time="2025-02-14T01:05:16.617330989-05:00" level=info msg="containerd not running, starting managed containerd"
-time="2025-02-14T01:05:16.655536208-05:00" level=info msg="started new containerd process" address=/home1/s/sikaili/.docker/run/docker/containerd/containerd.sock module=libcontainerd pid=55736
-time="2025-02-14T01:05:16.683991719-05:00" level=info msg="starting containerd" revision=1677a17964311325ed1c31e2c0a3589ce6d5c30d version=v1.7.1
-time="2025-02-14T01:05:16.710398570-05:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.aufs\"..." type=io.containerd.snapshotter.v1
-time="2025-02-14T01:05:16.721629752-05:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.aufs\"..." error="aufs is not supported (modprobe aufs failed: exit status 1 \"modprobe: FATAL: Module aufs not found in directory /lib/modules/6.4.0-150600.23.33-default\\n\"): skip plugin" type=io.containerd.snapshotter.v1
-time="2025-02-14T01:05:16.721668911-05:00" level=info msg="loading plugin \"io.containerd.content.v1.content\"..." type=io.containerd.content.v1
-time="2025-02-14T01:05:16.721703681-05:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.native\"..." type=io.containerd.snapshotter.v1
-time="2025-02-14T01:05:16.721738741-05:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.overlayfs\"..." type=io.containerd.snapshotter.v1
-time="2025-02-14T01:05:16.721990600-05:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.devmapper\"..." type=io.containerd.snapshotter.v1
-time="2025-02-14T01:05:16.722016439-05:00" level=warning msg="failed to load plugin io.containerd.snapshotter.v1.devmapper" error="devmapper not configured"
-time="2025-02-14T01:05:16.722031409-05:00" level=info msg="loading plugin \"io.containerd.snapshotter.v1.zfs\"..." type=io.containerd.snapshotter.v1
-time="2025-02-14T01:05:16.722947685-05:00" level=info msg="skip loading plugin \"io.containerd.snapshotter.v1.zfs\"..." error="path /scratch/sikaili/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs must be a zfs filesystem to be used with the zfs snapshotter: skip plugin" type=io.containerd.snapshotter.v1
-time="2025-02-14T01:05:16.723003814-05:00" level=info msg="loading plugin \"io.containerd.metadata.v1.bolt\"..." type=io.containerd.metadata.v1
-time="2025-02-14T01:05:16.723048974-05:00" level=warning msg="could not use snapshotter devmapper in metadata plugin" error="devmapper not configured"
-time="2025-02-14T01:05:16.723075574-05:00" level=info msg="metadata content store policy set" policy=shared
-time="2025-02-14T01:05:16.723495062-05:00" level=info msg="loading plugin \"io.containerd.differ.v1.walking\"..." type=io.containerd.differ.v1
-time="2025-02-14T01:05:16.723540101-05:00" level=info msg="loading plugin \"io.containerd.event.v1.exchange\"..." type=io.containerd.event.v1
-time="2025-02-14T01:05:16.723572151-05:00" level=info msg="loading plugin \"io.containerd.gc.v1.scheduler\"..." type=io.containerd.gc.v1
-time="2025-02-14T01:05:16.723628631-05:00" level=info msg="loading plugin \"io.containerd.lease.v1.manager\"..." type=io.containerd.lease.v1
-time="2025-02-14T01:05:16.723664961-05:00" level=info msg="loading plugin \"io.containerd.nri.v1.nri\"..." type=io.containerd.nri.v1
-time="2025-02-14T01:05:16.723698071-05:00" level=info msg="NRI interface is disabled by configuration."
-time="2025-02-14T01:05:16.723729880-05:00" level=info msg="loading plugin \"io.containerd.runtime.v2.task\"..." type=io.containerd.runtime.v2
-time="2025-02-14T01:05:16.773990657-05:00" level=error msg="copy shim log after reload" error="read /proc/self/fd/8: file already closed" namespace=moby
-time="2025-02-14T01:05:16.774133636-05:00" level=warning msg="cleaning up after shim disconnected" id=07d8096fbe7ddb345533372bf2e53574105dcad8bed605363728eea78b6974fe namespace=moby
-time="2025-02-14T01:05:16.774206516-05:00" level=info msg="cleaning up dead shim" namespace=moby
-time="2025-02-14T01:05:16.993671586-05:00" level=info msg="loading plugin \"io.containerd.runtime.v2.shim\"..." type=io.containerd.runtime.v2
-time="2025-02-14T01:05:16.993737946-05:00" level=info msg="loading plugin \"io.containerd.sandbox.store.v1.local\"..." type=io.containerd.sandbox.store.v1
-time="2025-02-14T01:05:16.993774965-05:00" level=info msg="loading plugin \"io.containerd.sandbox.controller.v1.local\"..." type=io.containerd.sandbox.controller.v1
-time="2025-02-14T01:05:16.993810455-05:00" level=info msg="loading plugin \"io.containerd.streaming.v1.manager\"..." type=io.containerd.streaming.v1
-time="2025-02-14T01:05:16.993850005-05:00" level=info msg="loading plugin \"io.containerd.service.v1.introspection-service\"..." type=io.containerd.service.v1
-time="2025-02-14T01:05:16.993888785-05:00" level=info msg="loading plugin \"io.containerd.service.v1.containers-service\"..." type=io.containerd.service.v1
-time="2025-02-14T01:05:16.993923555-05:00" level=info msg="loading plugin \"io.containerd.service.v1.content-service\"..." type=io.containerd.service.v1
-time="2025-02-14T01:05:16.993956625-05:00" level=info msg="loading plugin \"io.containerd.service.v1.diff-service\"..." type=io.containerd.service.v1
-time="2025-02-14T01:05:16.993993124-05:00" level=info msg="loading plugin \"io.containerd.service.v1.images-service\"..." type=io.containerd.service.v1
-time="2025-02-14T01:05:16.994027164-05:00" level=info msg="loading plugin \"io.containerd.service.v1.namespaces-service\"..." type=io.containerd.service.v1
-time="2025-02-14T01:05:16.994060744-05:00" level=info msg="loading plugin \"io.containerd.service.v1.snapshots-service\"..." type=io.containerd.service.v1
-time="2025-02-14T01:05:16.994091694-05:00" level=info msg="loading plugin \"io.containerd.runtime.v1.linux\"..." type=io.containerd.runtime.v1
-time="2025-02-14T01:05:16.997600205-05:00" level=info msg="loading plugin \"io.containerd.monitor.v1.cgroups\"..." type=io.containerd.monitor.v1
-time="2025-02-14T01:05:16.998281122-05:00" level=info msg="loading plugin \"io.containerd.service.v1.tasks-service\"..." type=io.containerd.service.v1
-time="2025-02-14T01:05:16.998340192-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.introspection\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.998385321-05:00" level=info msg="loading plugin \"io.containerd.transfer.v1.local\"..." type=io.containerd.transfer.v1
-time="2025-02-14T01:05:16.998437181-05:00" level=info msg="loading plugin \"io.containerd.internal.v1.restart\"..." type=io.containerd.internal.v1
-time="2025-02-14T01:05:16.998563410-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.containers\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.998597070-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.content\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.998629780-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.diff\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.998663710-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.events\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.998699150-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.healthcheck\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.998732449-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.images\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.998777879-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.leases\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.998811389-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.namespaces\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.998851259-05:00" level=info msg="loading plugin \"io.containerd.internal.v1.opt\"..." type=io.containerd.internal.v1
-time="2025-02-14T01:05:16.998969128-05:00" level=warning msg="failed to load plugin io.containerd.internal.v1.opt" error="mkdir /opt/containerd: permission denied"
-time="2025-02-14T01:05:16.999000208-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandbox-controllers\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.999045778-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.sandboxes\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.999091308-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.snapshots\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.999125817-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.streaming\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.999160557-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.tasks\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.999197147-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.transfer\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.999229747-05:00" level=info msg="loading plugin \"io.containerd.grpc.v1.version\"..." type=io.containerd.grpc.v1
-time="2025-02-14T01:05:16.999262127-05:00" level=info msg="loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." type=io.containerd.tracing.processor.v1
-time="2025-02-14T01:05:16.999298186-05:00" level=info msg="skip loading plugin \"io.containerd.tracing.processor.v1.otlp\"..." error="no OpenTelemetry endpoint: skip plugin" type=io.containerd.tracing.processor.v1
-time="2025-02-14T01:05:16.999327256-05:00" level=info msg="loading plugin \"io.containerd.internal.v1.tracing\"..." type=io.containerd.internal.v1
-time="2025-02-14T01:05:16.999355856-05:00" level=info msg="skipping tracing processor initialization (no tracing plugin)" error="no OpenTelemetry endpoint: skip plugin"
-time="2025-02-14T01:05:17.012136119-05:00" level=info msg=serving... address=/home1/s/sikaili/.docker/run/docker/containerd/containerd-debug.sock
-time="2025-02-14T01:05:17.031277729-05:00" level=info msg=serving... address=/home1/s/sikaili/.docker/run/docker/containerd/containerd.sock.ttrpc
-time="2025-02-14T01:05:17.036122023-05:00" level=info msg=serving... address=/home1/s/sikaili/.docker/run/docker/containerd/containerd.sock
-time="2025-02-14T01:05:17.036187143-05:00" level=info msg="containerd successfully booted in 0.357156s"
-time="2025-02-14T01:05:17.066393095-05:00" level=info msg="[graphdriver] using prior storage driver: overlay2"
-time="2025-02-14T01:05:17.077988174-05:00" level=info msg="Loading containers: start."
-time="2025-02-14T01:05:17.119917524-05:00" level=info msg="skipping firewalld management for rootless mode"
-time="2025-02-14T01:05:17.327014868-05:00" level=info msg="Removing stale sandbox 51e97abd72529797b7395fbd0750089811bd1ea54c70ff3f9a2f2c1220a2d699 (565a5227b7a2609fe5a1f9c1324c898f8d5d3d9ba48f36379efb0db4b8dabd1c)"
-time="2025-02-14T01:05:17.337331214-05:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint 8744597651fe284987edc9c20edb791df4d3fa19fb028b01c17e47ed992b051e 5b30b941010db443b6549b3a96470de3aabd8442c6d67382c55793d8ce10f9fa], retrying...."
-time="2025-02-14T01:05:17.421017576-05:00" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
-time="2025-02-14T01:05:21.432949558-05:00" level=info msg="Loading containers: done."
-time="2025-02-14T01:05:21.458361825-05:00" level=warning msg="Not using native diff for overlay2, this may cause degraded performance for building images: running in a user namespace" storage-driver=overlay2
-time="2025-02-14T01:05:21.459007571-05:00" level=warning msg="WARNING: Running in rootless-mode without cgroups. To enable cgroups in rootless-mode, you need to boot the system in cgroup v2 mode."
-time="2025-02-14T01:05:21.459060161-05:00" level=info msg="Docker daemon" commit=a61e2b4 graphdriver=overlay2 version=24.0.5
-time="2025-02-14T01:05:21.460369824-05:00" level=info msg="Daemon has completed initialization"
-time="2025-02-14T01:05:21.548233783-05:00" level=info msg="API listen on /home1/s/sikaili/.docker/run/docker.sock"
-time="2025-02-14T01:05:26.472370357-05:00" level=info msg="loading plugin \"io.containerd.internal.v1.shutdown\"..." runtime=io.containerd.runc.v2 type=io.containerd.internal.v1
-time="2025-02-14T01:05:26.472521876-05:00" level=info msg="loading plugin \"io.containerd.ttrpc.v1.pause\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
-time="2025-02-14T01:05:26.472555496-05:00" level=info msg="loading plugin \"io.containerd.event.v1.publisher\"..." runtime=io.containerd.runc.v2 type=io.containerd.event.v1
-time="2025-02-14T01:05:26.472580386-05:00" level=info msg="loading plugin \"io.containerd.ttrpc.v1.task\"..." runtime=io.containerd.runc.v2 type=io.containerd.ttrpc.v1
-Cloning into 'simpleRL-swebench'...
-ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
-cudf 24.4.0 requires pyarrow<15.0.0a0,>=14.0.1, but you have pyarrow 19.0.0 which is incompatible.
-WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-
-[notice] A new release of pip is available: 24.1.2 -> 25.0.1
-[notice] To update, run: python -m pip install --upgrade pip
-WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-
-[notice] A new release of pip is available: 24.1.2 -> 25.0.1
-[notice] To update, run: python -m pip install --upgrade pip
-Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Downloading 'config.json' to '/workspace/hdfs/model_hub/.cache/huggingface/download/8_PA_wEVGiVa2goH2H4KQOQpvVY=.68c044b63c894bc0c3d334a44bed2856d6d6815d.incomplete'
-Downloading '.gitattributes' to '/workspace/hdfs/model_hub/.cache/huggingface/download/wPaCkH-WbT7GsmxMKKrNZTV4nSM=.a6344aac8c09253b3b630fb776ae94478aa0275b.incomplete'
-Download complete. Moving file to /workspace/hdfs/model_hub/config.json
-Download complete. Moving file to /workspace/hdfs/model_hub/.gitattributes
-Downloading 'generation_config.json' to '/workspace/hdfs/model_hub/.cache/huggingface/download/3EVKVggOldJcKSsGjSdoUCN1AyQ=.052ab54633116a634da950ab483233c4ace0aa82.incomplete'
-Still waiting to acquire lock on /workspace/hdfs/model_hub/.cache/huggingface/.gitignore.lock (elapsed: 0.1 seconds)
-Downloading 'tokenizer.json' to '/workspace/hdfs/model_hub/.cache/huggingface/download/HgM_lKo9sdSCfRtVg7MMFS7EKqo=.a34650995da6939a945c330eadb0687147ac3ef8.incomplete'
-Downloading 'tokenizer_config.json' to '/workspace/hdfs/model_hub/.cache/huggingface/download/vzaExXFZNBay89bvlQv-ZcI6BTg=.9967ff32d94b21c94dc7e2b3bcbea295a46cde50.incomplete'
-Download complete. Moving file to /workspace/hdfs/model_hub/generation_config.json
-Downloading 'model.safetensors' to '/workspace/hdfs/model_hub/.cache/huggingface/download/xGOKKLRSlIhH692hSVvI1-gpoa8=.58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945.incomplete'
-Download complete. Moving file to /workspace/hdfs/model_hub/tokenizer_config.json
-Downloading 'figures/benchmark.jpg' to '/workspace/hdfs/model_hub/.cache/huggingface/download/figures/8L0lxF85I8AeQ5qYXUgpgBh9Nc0=.d1fd67ec1bf748c24b244b6efd825ded1b147787.incomplete'
-Downloading 'README.md' to '/workspace/hdfs/model_hub/.cache/huggingface/download/Xn7B-BWUGOee2Y6hCZtEhtFu4BE=.d6ff9c6d4933688f95f315e3ce08f8e5e28eaeee.incomplete'
-Download complete. Moving file to /workspace/hdfs/model_hub/README.md
-Downloading 'LICENSE' to '/workspace/hdfs/model_hub/.cache/huggingface/download/DhCjcNQuMpl4FL346qr3tvNUCgY=.d42fae903e9fa07f3e8edb0db00a8d905ba49560.incomplete'
-Download complete. Moving file to /workspace/hdfs/model_hub/LICENSE
-Download complete. Moving file to /workspace/hdfs/model_hub/figures/benchmark.jpg
-Fetching 9 files:  22%|██▏       | 2/9 [00:00<00:00,  8.66it/s]Download complete. Moving file to /workspace/hdfs/model_hub/tokenizer.json
-Download complete. Moving file to /workspace/hdfs/model_hub/model.safetensors
-Fetching 9 files:  78%|███████▊  | 7/9 [01:55<00:35, 17.97s/it]Fetching 9 files: 100%|██████████| 9/9 [01:55<00:00, 12.79s/it]
-Generating train split:   0%|          | 0/18817 [00:00<?, ? examples/s]Generating train split:   5%|▌         | 1000/18817 [00:00<00:13, 1295.57 examples/s]Generating train split:  11%|█         | 2000/18817 [00:01<00:08, 1895.79 examples/s]Generating train split:  16%|█▌        | 3000/18817 [00:01<00:05, 2923.11 examples/s]Generating train split:  22%|██▏       | 4137/18817 [00:02<00:07, 1994.78 examples/s]Generating train split:  27%|██▋       | 5137/18817 [00:02<00:06, 2224.81 examples/s]Generating train split:  33%|███▎      | 6137/18817 [00:02<00:04, 2892.00 examples/s]Generating train split:  39%|███▊      | 7273/18817 [00:03<00:06, 1860.81 examples/s]Generating train split:  44%|████▍     | 8273/18817 [00:03<00:04, 2237.33 examples/s]Generating train split:  49%|████▉     | 9273/18817 [00:03<00:03, 2855.10 examples/s]Generating train split:  55%|█████▌    | 10409/18817 [00:04<00:04, 2094.03 examples/s]Generating train split:  61%|██████    | 11409/18817 [00:05<00:03, 2277.29 examples/s]Generating train split:  66%|██████▌   | 12409/18817 [00:05<00:02, 2849.24 examples/s]Generating train split:  72%|███████▏  | 13545/18817 [00:06<00:02, 2116.59 examples/s]Generating train split:  77%|███████▋  | 14545/18817 [00:06<00:01, 2265.44 examples/s]Generating train split:  83%|████████▎ | 15545/18817 [00:06<00:01, 2828.34 examples/s]Generating train split:  89%|████████▊ | 16681/18817 [00:07<00:01, 2076.37 examples/s]Generating train split:  94%|█████████▍| 17681/18817 [00:07<00:00, 2251.68 examples/s]Generating train split:  99%|█████████▉| 18681/18817 [00:07<00:00, 2805.93 examples/s]Generating train split: 100%|██████████| 18817/18817 [00:07<00:00, 2363.87 examples/s]
-Generating dev split:   0%|          | 0/225 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 225/225 [00:00<00:00, 2474.92 examples/s]
-Generating test split:   0%|          | 0/2294 [00:00<?, ? examples/s]Generating test split:  44%|████▎     | 1000/2294 [00:00<00:00, 1847.59 examples/s]Generating test split:  87%|████████▋ | 2000/2294 [00:00<00:00, 3444.92 examples/s]Generating test split: 100%|██████████| 2294/2294 [00:00<00:00, 3319.34 examples/s]
-Generating validation split:   0%|          | 0/191 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 191/191 [00:00<00:00, 2218.62 examples/s]
-Process SWE-bench_oracle:   0%|          | 0/18817 [00:00<?, ?it/s]Process SWE-bench_oracle:   1%|          | 125/18817 [00:00<00:15, 1245.98it/s]Process SWE-bench_oracle:   1%|▏         | 257/18817 [00:00<00:14, 1277.84it/s]Process SWE-bench_oracle:   2%|▏         | 385/18817 [00:00<00:14, 1256.10it/s]Process SWE-bench_oracle:   3%|▎         | 513/18817 [00:00<00:14, 1261.50it/s]Process SWE-bench_oracle:   3%|▎         | 640/18817 [00:00<00:14, 1258.15it/s]Process SWE-bench_oracle:   4%|▍         | 766/18817 [00:00<00:14, 1242.70it/s]Process SWE-bench_oracle:   5%|▍         | 891/18817 [00:00<00:15, 1171.75it/s]Process SWE-bench_oracle:   5%|▌         | 1010/18817 [00:00<00:15, 1172.32it/s]Process SWE-bench_oracle:   6%|▌         | 1128/18817 [00:00<00:15, 1161.92it/s]Process SWE-bench_oracle:   7%|▋         | 1254/18817 [00:01<00:14, 1189.61it/s]Process SWE-bench_oracle:   7%|▋         | 1374/18817 [00:01<00:14, 1169.72it/s]Process SWE-bench_oracle:   8%|▊         | 1492/18817 [00:01<00:15, 1108.06it/s]Process SWE-bench_oracle:   9%|▊         | 1636/18817 [00:01<00:14, 1201.06it/s]Process SWE-bench_oracle:  10%|▉         | 1793/18817 [00:01<00:13, 1305.06it/s]Process SWE-bench_oracle:  10%|█         | 1925/18817 [00:01<00:13, 1241.70it/s]Process SWE-bench_oracle:  11%|█         | 2051/18817 [00:01<00:14, 1178.64it/s]Process SWE-bench_oracle:  12%|█▏        | 2194/18817 [00:01<00:13, 1243.94it/s]Process SWE-bench_oracle:  12%|█▏        | 2320/18817 [00:01<00:13, 1205.50it/s]Process SWE-bench_oracle:  13%|█▎        | 2442/18817 [00:02<00:14, 1112.33it/s]Process SWE-bench_oracle:  14%|█▎        | 2558/18817 [00:02<00:14, 1124.71it/s]Process SWE-bench_oracle:  14%|█▍        | 2699/18817 [00:02<00:13, 1192.14it/s]Process SWE-bench_oracle:  15%|█▍        | 2820/18817 [00:02<00:13, 1175.57it/s]Process SWE-bench_oracle:  16%|█▌        | 2942/18817 [00:02<00:13, 1179.16it/s]Process SWE-bench_oracle:  16%|█▋        | 3061/18817 [00:02<00:13, 1158.82it/s]Process SWE-bench_oracle:  17%|█▋        | 3202/18817 [00:02<00:12, 1223.94it/s]Process SWE-bench_oracle:  18%|█▊        | 3325/18817 [00:02<00:13, 1183.59it/s]Process SWE-bench_oracle:  18%|█▊        | 3444/18817 [00:02<00:13, 1152.47it/s]Process SWE-bench_oracle:  19%|█▉        | 3574/18817 [00:02<00:12, 1182.20it/s]Process SWE-bench_oracle:  20%|█▉        | 3693/18817 [00:03<00:12, 1163.73it/s]Process SWE-bench_oracle:  20%|██        | 3816/18817 [00:03<00:12, 1180.12it/s]Process SWE-bench_oracle:  21%|██        | 3951/18817 [00:03<00:12, 1229.35it/s]Process SWE-bench_oracle:  22%|██▏       | 4079/18817 [00:03<00:12, 1222.88it/s]Process SWE-bench_oracle:  22%|██▏       | 4208/18817 [00:03<00:11, 1242.19it/s]Process SWE-bench_oracle:  23%|██▎       | 4337/18817 [00:03<00:11, 1255.04it/s]Process SWE-bench_oracle:  24%|██▎       | 4463/18817 [00:03<00:11, 1208.99it/s]Process SWE-bench_oracle:  24%|██▍       | 4587/18817 [00:03<00:11, 1212.07it/s]Process SWE-bench_oracle:  25%|██▌       | 4736/18817 [00:03<00:10, 1288.45it/s]Process SWE-bench_oracle:  26%|██▌       | 4889/18817 [00:04<00:10, 1358.41it/s]Process SWE-bench_oracle:  27%|██▋       | 5043/18817 [00:04<00:09, 1406.56it/s]Process SWE-bench_oracle:  28%|██▊       | 5184/18817 [00:04<00:10, 1304.92it/s]Process SWE-bench_oracle:  28%|██▊       | 5317/18817 [00:04<00:10, 1267.20it/s]Process SWE-bench_oracle:  29%|██▉       | 5454/18817 [00:04<00:10, 1280.33it/s]Process SWE-bench_oracle:  30%|██▉       | 5583/18817 [00:04<00:10, 1256.05it/s]Process SWE-bench_oracle:  30%|███       | 5711/18817 [00:04<00:10, 1262.47it/s]Process SWE-bench_oracle:  31%|███       | 5838/18817 [00:04<00:10, 1238.64it/s]Process SWE-bench_oracle:  32%|███▏      | 5963/18817 [00:04<00:10, 1234.02it/s]Process SWE-bench_oracle:  32%|███▏      | 6087/18817 [00:04<00:10, 1228.33it/s]Process SWE-bench_oracle:  33%|███▎      | 6210/18817 [00:05<00:10, 1181.70it/s]Process SWE-bench_oracle:  34%|███▎      | 6338/18817 [00:05<00:10, 1187.90it/s]Process SWE-bench_oracle:  34%|███▍      | 6458/18817 [00:05<00:10, 1161.72it/s]Process SWE-bench_oracle:  35%|███▍      | 6576/18817 [00:05<00:10, 1165.54it/s]Process SWE-bench_oracle:  36%|███▌      | 6693/18817 [00:05<00:11, 1032.94it/s]Process SWE-bench_oracle:  36%|███▌      | 6813/18817 [00:05<00:11, 1076.50it/s]Process SWE-bench_oracle:  37%|███▋      | 6924/18817 [00:05<00:11, 1081.06it/s]Process SWE-bench_oracle:  38%|███▊      | 7062/18817 [00:05<00:10, 1165.33it/s]Process SWE-bench_oracle:  38%|███▊      | 7181/18817 [00:07<00:47, 244.42it/s] Process SWE-bench_oracle:  39%|███▉      | 7328/18817 [00:07<00:33, 340.06it/s]Process SWE-bench_oracle:  40%|███▉      | 7476/18817 [00:07<00:24, 455.11it/s]Process SWE-bench_oracle:  41%|████      | 7622/18817 [00:07<00:19, 581.51it/s]Process SWE-bench_oracle:  41%|████      | 7747/18817 [00:07<00:17, 628.84it/s]Process SWE-bench_oracle:  42%|████▏     | 7859/18817 [00:07<00:16, 678.38it/s]Process SWE-bench_oracle:  42%|████▏     | 7976/18817 [00:07<00:14, 768.14it/s]Process SWE-bench_oracle:  43%|████▎     | 8112/18817 [00:08<00:12, 891.90it/s]Process SWE-bench_oracle:  44%|████▎     | 8229/18817 [00:08<00:11, 938.25it/s]Process SWE-bench_oracle:  45%|████▍     | 8375/18817 [00:08<00:09, 1065.47it/s]Process SWE-bench_oracle:  45%|████▌     | 8504/18817 [00:08<00:09, 1122.98it/s]Process SWE-bench_oracle:  46%|████▌     | 8648/18817 [00:08<00:08, 1207.34it/s]Process SWE-bench_oracle:  47%|████▋     | 8795/18817 [00:08<00:07, 1278.68it/s]Process SWE-bench_oracle:  47%|████▋     | 8931/18817 [00:08<00:07, 1282.36it/s]Process SWE-bench_oracle:  48%|████▊     | 9072/18817 [00:08<00:07, 1315.98it/s]Process SWE-bench_oracle:  49%|████▉     | 9208/18817 [00:08<00:08, 1179.92it/s]Process SWE-bench_oracle:  50%|████▉     | 9332/18817 [00:09<00:08, 1180.23it/s]Process SWE-bench_oracle:  50%|█████     | 9457/18817 [00:09<00:07, 1198.07it/s]Process SWE-bench_oracle:  51%|█████     | 9580/18817 [00:09<00:07, 1171.88it/s]Process SWE-bench_oracle:  52%|█████▏    | 9725/18817 [00:09<00:07, 1249.28it/s]Process SWE-bench_oracle:  52%|█████▏    | 9855/18817 [00:09<00:07, 1263.33it/s]Process SWE-bench_oracle:  53%|█████▎    | 9983/18817 [00:09<00:07, 1221.97it/s]Process SWE-bench_oracle:  54%|█████▎    | 10107/18817 [00:09<00:07, 1193.68it/s]Process SWE-bench_oracle:  54%|█████▍    | 10228/18817 [00:09<00:07, 1166.11it/s]Process SWE-bench_oracle:  55%|█████▍    | 10346/18817 [00:09<00:07, 1156.28it/s]Process SWE-bench_oracle:  56%|█████▌    | 10463/18817 [00:10<00:07, 1065.20it/s]Process SWE-bench_oracle:  56%|█████▋    | 10599/18817 [00:10<00:07, 1132.96it/s]Process SWE-bench_oracle:  57%|█████▋    | 10734/18817 [00:10<00:06, 1192.62it/s]Process SWE-bench_oracle:  58%|█████▊    | 10856/18817 [00:10<00:06, 1197.92it/s]Process SWE-bench_oracle:  58%|█████▊    | 10985/18817 [00:10<00:06, 1223.55it/s]Process SWE-bench_oracle:  59%|█████▉    | 11109/18817 [00:10<00:06, 1176.97it/s]Process SWE-bench_oracle:  60%|█████▉    | 11228/18817 [00:10<00:06, 1175.80it/s]Process SWE-bench_oracle:  60%|██████    | 11381/18817 [00:10<00:05, 1262.69it/s]Process SWE-bench_oracle:  61%|██████    | 11508/18817 [00:10<00:06, 1204.23it/s]Process SWE-bench_oracle:  62%|██████▏   | 11630/18817 [00:10<00:06, 1165.79it/s]Process SWE-bench_oracle:  63%|██████▎   | 11772/18817 [00:11<00:05, 1231.81it/s]Process SWE-bench_oracle:  63%|██████▎   | 11897/18817 [00:11<00:05, 1161.47it/s]Process SWE-bench_oracle:  64%|██████▍   | 12078/18817 [00:11<00:05, 1340.60it/s]Process SWE-bench_oracle:  65%|██████▍   | 12215/18817 [00:11<00:05, 1261.37it/s]Process SWE-bench_oracle:  66%|██████▌   | 12344/18817 [00:11<00:05, 1114.98it/s]Process SWE-bench_oracle:  66%|██████▌   | 12460/18817 [00:11<00:05, 1094.66it/s]Process SWE-bench_oracle:  67%|██████▋   | 12573/18817 [00:11<00:05, 1103.21it/s]Process SWE-bench_oracle:  68%|██████▊   | 12715/18817 [00:11<00:05, 1188.64it/s]Process SWE-bench_oracle:  68%|██████▊   | 12855/18817 [00:11<00:04, 1246.29it/s]Process SWE-bench_oracle:  69%|██████▉   | 12982/18817 [00:12<00:04, 1206.59it/s]Process SWE-bench_oracle:  70%|██████▉   | 13128/18817 [00:12<00:04, 1277.00it/s]Process SWE-bench_oracle:  70%|███████   | 13258/18817 [00:12<00:04, 1231.82it/s]Process SWE-bench_oracle:  71%|███████   | 13384/18817 [00:12<00:04, 1237.79it/s]Process SWE-bench_oracle:  72%|███████▏  | 13518/18817 [00:12<00:04, 1264.41it/s]Process SWE-bench_oracle:  73%|███████▎  | 13646/18817 [00:12<00:04, 1186.60it/s]Process SWE-bench_oracle:  73%|███████▎  | 13802/18817 [00:12<00:03, 1283.86it/s]Process SWE-bench_oracle:  74%|███████▍  | 13965/18817 [00:12<00:03, 1379.38it/s]Process SWE-bench_oracle:  75%|███████▍  | 14105/18817 [00:12<00:03, 1248.95it/s]Process SWE-bench_oracle:  76%|███████▌  | 14234/18817 [00:13<00:04, 1134.22it/s]Process SWE-bench_oracle:  76%|███████▋  | 14368/18817 [00:13<00:03, 1187.14it/s]Process SWE-bench_oracle:  77%|███████▋  | 14491/18817 [00:13<00:03, 1168.75it/s]Process SWE-bench_oracle:  78%|███████▊  | 14611/18817 [00:13<00:03, 1110.37it/s]Process SWE-bench_oracle:  78%|███████▊  | 14724/18817 [00:13<00:03, 1114.83it/s]Process SWE-bench_oracle:  79%|███████▉  | 14872/18817 [00:13<00:03, 1214.82it/s]Process SWE-bench_oracle:  80%|███████▉  | 14996/18817 [00:13<00:03, 1214.07it/s]Process SWE-bench_oracle:  80%|████████  | 15119/18817 [00:13<00:03, 1166.17it/s]Process SWE-bench_oracle:  81%|████████  | 15237/18817 [00:14<00:03, 925.95it/s] Process SWE-bench_oracle:  82%|████████▏ | 15370/18817 [00:14<00:03, 1023.55it/s]Process SWE-bench_oracle:  82%|████████▏ | 15515/18817 [00:14<00:02, 1132.72it/s]Process SWE-bench_oracle:  83%|████████▎ | 15640/18817 [00:14<00:02, 1163.90it/s]Process SWE-bench_oracle:  84%|████████▍ | 15762/18817 [00:14<00:02, 1089.93it/s]Process SWE-bench_oracle:  84%|████████▍ | 15876/18817 [00:14<00:02, 1102.25it/s]Process SWE-bench_oracle:  85%|████████▌ | 15997/18817 [00:14<00:02, 1130.60it/s]Process SWE-bench_oracle:  86%|████████▌ | 16113/18817 [00:14<00:02, 1137.26it/s]Process SWE-bench_oracle:  86%|████████▋ | 16235/18817 [00:14<00:02, 1161.01it/s]Process SWE-bench_oracle:  87%|████████▋ | 16370/18817 [00:15<00:02, 1198.35it/s]Process SWE-bench_oracle:  88%|████████▊ | 16502/18817 [00:15<00:01, 1223.68it/s]Process SWE-bench_oracle:  88%|████████▊ | 16629/18817 [00:15<00:01, 1227.99it/s]Process SWE-bench_oracle:  89%|████████▉ | 16757/18817 [00:15<00:01, 1239.84it/s]Process SWE-bench_oracle:  90%|████████▉ | 16882/18817 [00:15<00:01, 1218.81it/s]Process SWE-bench_oracle:  90%|█████████ | 17027/18817 [00:15<00:01, 1275.50it/s]Process SWE-bench_oracle:  91%|█████████ | 17155/18817 [00:15<00:01, 1229.02it/s]Process SWE-bench_oracle:  92%|█████████▏| 17291/18817 [00:15<00:01, 1264.39it/s]Process SWE-bench_oracle:  93%|█████████▎| 17418/18817 [00:15<00:01, 1205.34it/s]Process SWE-bench_oracle:  93%|█████████▎| 17559/18817 [00:15<00:01, 1256.91it/s]Process SWE-bench_oracle:  94%|█████████▍| 17686/18817 [00:16<00:00, 1244.94it/s]Process SWE-bench_oracle:  95%|█████████▍| 17812/18817 [00:16<00:00, 1165.01it/s]Process SWE-bench_oracle:  95%|█████████▌| 17930/18817 [00:16<00:00, 1153.39it/s]Process SWE-bench_oracle:  96%|█████████▌| 18066/18817 [00:16<00:00, 1154.74it/s]Process SWE-bench_oracle:  97%|█████████▋| 18183/18817 [00:16<00:00, 1151.15it/s]Process SWE-bench_oracle:  97%|█████████▋| 18307/18817 [00:16<00:00, 1168.49it/s]Process SWE-bench_oracle:  98%|█████████▊| 18425/18817 [00:16<00:00, 1101.88it/s]Process SWE-bench_oracle:  99%|█████████▊| 18563/18817 [00:16<00:00, 1177.36it/s]Process SWE-bench_oracle:  99%|█████████▉| 18716/18817 [00:16<00:00, 1275.05it/s]Process SWE-bench_oracle: 100%|██████████| 18817/18817 [00:17<00:00, 1106.77it/s]
-2025-02-14 06:15:13,365	WARNING utils.py:580 -- Detecting docker specified CPUs. In previous versions of Ray, CPU detection in containers was incorrect. Please ensure that Ray has enough CPUs allocated. As a temporary workaround to revert to the prior behavior, set `RAY_USE_MULTIPROCESSING_CPU_COUNT=1` as an env var before starting Ray. Set the env var: `RAY_DISABLE_DOCKER_CPU_WARNING=1` to mute this warning.
-time="2025-02-14T17:31:05.167303364-05:00" level=info msg="shim disconnected" id=be917105b57ae5ae5cac4329ef5270fa09707fcc29fcfcc05f33a54f2276c66e namespace=moby
-time="2025-02-14T17:31:05.167484913-05:00" level=info msg="ignoring event" container=be917105b57ae5ae5cac4329ef5270fa09707fcc29fcfcc05f33a54f2276c66e module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
-time="2025-02-14T17:31:05.168490329-05:00" level=warning msg="cleaning up after shim disconnected" id=be917105b57ae5ae5cac4329ef5270fa09707fcc29fcfcc05f33a54f2276c66e namespace=moby
-time="2025-02-14T17:31:05.168535569-05:00" level=info msg="cleaning up dead shim" namespace=moby
-time="2025-02-14T17:31:05.258177855-05:00" level=warning msg="failed to clean up after shim disconnected" error="unlinkat /home1/s/sikaili/.docker/run/docker/containerd/daemon/io.containerd.runtime.v2.task/moby/.be917105b57ae5ae5cac4329ef5270fa09707fcc29fcfcc05f33a54f2276c66e: directory not empty" id=be917105b57ae5ae5cac4329ef5270fa09707fcc29fcfcc05f33a54f2276c66e namespace=moby

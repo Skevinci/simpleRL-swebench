@@ -5,7 +5,7 @@
 #SBATCH --partition=p_nlp
 #SBATCH --gpus=8
 #SBATCH --nodelist=nlpgpu04
-#SBATCH --mem=400GB
+#SBATCH --mem=480GB
 #SBATCH --cpus-per-gpu=4
 
 dockerd-rootless.sh &

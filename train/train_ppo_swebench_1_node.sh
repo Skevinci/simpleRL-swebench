@@ -14,12 +14,12 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --colocate_actor_ref \
     --vllm_num_engines 4 \
     --vllm_tensor_parallel_size 1 \
+    --micro_train_batch_size 2 \
+    --train_batch_size 32 \
+    --micro_rollout_batch_size 2 \
+    --rollout_batch_size 64 \
     --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \
-    --micro_train_batch_size 2 \
-    --train_batch_size 128 \
-    --micro_rollout_batch_size 2 \
-    --rollout_batch_size 256 \
     --temperature 0.6 \
     --n_samples_per_prompt 8 \
     --max_samples 100000 \

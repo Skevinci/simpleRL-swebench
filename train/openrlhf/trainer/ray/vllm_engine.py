@@ -81,6 +81,7 @@ def create_vllm_engines(
     enable_prefix_caching: bool,
     enforce_eager: bool,
     max_model_len: int,
+    gpu_memory_utilization=None,
 ):
     vllm_engines = []
     for i in range(num_engines):
@@ -111,6 +112,7 @@ def create_vllm_engines(
                 enable_prefix_caching=enable_prefix_caching,
                 enforce_eager=enforce_eager,
                 max_model_len=max_model_len,
+                gpu_memory_utilization=gpu_memory_utilization,
             )
         )
 

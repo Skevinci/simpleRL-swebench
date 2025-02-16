@@ -14,9 +14,9 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --colocate_actor_ref \
     --vllm_num_engines 4 \
     --vllm_tensor_parallel_size 1 \
-    --micro_train_batch_size 2 \
+    --micro_train_batch_size 1 \
     --train_batch_size 32 \
-    --micro_rollout_batch_size 2 \
+    --micro_rollout_batch_size 1 \
     --rollout_batch_size 64 \
     --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \

@@ -4,15 +4,15 @@ RUN_NAME=swebench_ppo
 
 python3 openrlhf/cli/train_ppo_ray_box.py \
     --ref_num_nodes 1 \
-    --ref_num_gpus_per_node 4 \
+    --ref_num_gpus_per_node 2 \
     --reward_num_nodes 0 \
     --reward_num_gpus_per_node 0 \
     --critic_num_nodes 1 \
     --critic_num_gpus_per_node 2 \
     --actor_num_nodes 1 \
-    --actor_num_gpus_per_node 4 \
+    --actor_num_gpus_per_node 2 \
     --colocate_actor_ref \
-    --vllm_num_engines 2 \
+    --vllm_num_engines 4 \
     --vllm_tensor_parallel_size 1 \
     --enable_prefix_caching \
     --vllm_gpu_memory_utilization 0.9 \
@@ -29,7 +29,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --num_episodes 20 \
     --prompt_max_len 100000 \
     --generate_max_len 20000 \
-    --zero_stage 2 \
+    --zero_stage 3 \
     --bf16 \
     --actor_learning_rate 5e-7 \
     --critic_learning_rate 9e-6 \

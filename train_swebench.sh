@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH --job-name=train
-#SBATCH --output=/nlp/data/sikaili/simpleRL-swebench/output/train_node04_output.txt
-#SBATCH --error=/nlp/data/sikaili/simpleRL-swebench/output/train_node04_error.txt
+#SBATCH --output=/nlp/data/sikaili/simpleRL-swebench/output/train_node08_output.txt
+#SBATCH --error=/nlp/data/sikaili/simpleRL-swebench/output/train_node08_error.txt
 #SBATCH --partition=p_nlp
 #SBATCH --gpus=8
-#SBATCH --nodelist=nlpgpu04
+#SBATCH --nodelist=nlpgpu08
 #SBATCH --mem=480GB
 #SBATCH --cpus-per-gpu=4
 

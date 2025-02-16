@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=train
-#SBATCH --output=/nlp/data/sikaili/simpleRL-swebench/output/train_output.txt
-#SBATCH --error=/nlp/data/sikaili/simpleRL-swebench/output/train_error.txt
+#SBATCH --output=/nlp/data/sikaili/simpleRL-swebench/output/train_node04_output.txt
+#SBATCH --error=/nlp/data/sikaili/simpleRL-swebench/output/train_node04_error.txt
 #SBATCH --partition=p_nlp
 #SBATCH --gpus=8
 #SBATCH --nodelist=nlpgpu04

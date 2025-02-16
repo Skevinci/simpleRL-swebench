@@ -661,8 +661,8 @@ def preprocess_swebench_response(sequence, answer):
         if stop_word in model_output:
             model_output = model_output.split(stop_word)[0].strip()
 
-    print("================== model_output ==================", model_output)
-    print("================== answer ==================", answer)
+    # print("================== model_output ==================", model_output)
+    # print("================== answer ==================", answer)
     box_match = compute_patch_reward(model_output, answer)
         
     if "boxed" not in model_output:
@@ -3746,7 +3746,6 @@ class RemoteExperienceMakerBOX(NaiveExperienceMakerBOX):
         """
         Turn samples into experience by calculating logprobs, values, rewards, and kl divergence.
         """
-        print("**************** RemoteExperienceMakerBOX.make_experience ****************")
         self.actor.eval()
         device = torch.cuda.current_device()
 
@@ -3800,7 +3799,6 @@ class RemoteExperienceMakerBOX(NaiveExperienceMakerBOX):
             # ]
             #print("answers", answers[:5])
             #print("attention_mask_cpu", attention_mask_cpu[:1])
-            print("==================== Get queries ====================")
             
             processed_queries = []
             box_match_list = []

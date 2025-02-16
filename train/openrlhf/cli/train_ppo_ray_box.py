@@ -69,7 +69,6 @@ def train(args):
         ]
         pg = placement_group(bundles, strategy="STRICT_SPREAD")
         ray.get(pg.ready())
-    print('============ Finish creating placement group ============')
 
     # NOTE(wuxibin): Why don't we allocate 0.5 gpu for each actor when colocate models?
     # Say we have 1 node with 4 GPUs, and num_gpus_per_node for each model is 4.
@@ -96,7 +95,6 @@ def train(args):
         pg=pg,
         num_gpus_per_actor=0.25 if pg else 1,
     )
-    print('============ Finish creating reference model ============')
 
     # if colocated, create placement group for critic and reward model explicitly.
     pg = None
@@ -126,12 +124,10 @@ def train(args):
     else:
         critic_model = None
 
-    print("============ Finish creating critic model ============")
     # multiple reward models
     if not args.remote_rm_url and args.reward_pretrain:
         reward_pretrains = args.reward_pretrain.split(",")
         reward_models = []
-        print("============ Creating reward models ============")
         for _ in reward_pretrains:
             reward_models.append(
                 PPORayActorGroup(
@@ -144,8 +140,7 @@ def train(args):
             )
     else:
         reward_models = None
-
-    print("============ Init models ============")
+        
     # init reference/reward/actor model
     refs = []
     refs.extend(ref_model.async_init_model_from_pretrained(strategy, args.pretrain))
@@ -193,7 +188,6 @@ def train(args):
 
 
 if __name__ == "__main__":
-    print("===============================")
     parser = argparse.ArgumentParser()
     # Ray and vLLM
     parser.add_argument("--ref_num_nodes", type=int, default=1, help="number of nodes for reference")

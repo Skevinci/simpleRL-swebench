@@ -3804,8 +3804,8 @@ class RemoteExperienceMakerBOX(NaiveExperienceMakerBOX):
             box_match_list = []
             #math_equal_list = []
             for query, answer in zip(queries, answers):
-                query, box_match = preprocess_box_response_for_qwen_prompt(query, answer)
-                # query, box_match = preprocess_swebench_response(query, answer)
+                # query, box_match = preprocess_box_response_for_qwen_prompt(query, answer)
+                query, box_match = preprocess_swebench_response(query, answer)
 
                 processed_queries.append(query)
                 box_match_list.append(box_match)

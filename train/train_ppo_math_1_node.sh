@@ -1,6 +1,6 @@
 
 HDFS_HOME=/workspace/hdfs
-RUN_NAME=swebench_ppo
+RUN_NAME=math_test
 
 python3 openrlhf/cli/train_ppo_ray_box.py \
     --ref_num_nodes 1 \
@@ -25,14 +25,14 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --max_samples 100000 \
     --max_epochs 1 \
     --num_episodes 20 \
-    --prompt_max_len 20000 \
-    --generate_max_len 10000 \
+    --prompt_max_len 80000 \
+    --generate_max_len 20000 \
     --zero_stage 2 \
     --bf16 \
     --actor_learning_rate 5e-7 \
     --critic_learning_rate 9e-6 \
     --init_kl_coef 0.01 \
-    --prompt_data  data/swebench_oracle.json \
+    --prompt_data  data/math_level3to5_data_processed_with_qwen_prompt.json \
     --input_key input \
     --normalize_reward \
     --flash_attn \
@@ -44,3 +44,6 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --wandb_run_name $RUN_NAME \
     --ckpt_path $HDFS_HOME/checkpoints/$RUN_NAME  \
     --max_ckpt_num 20000 
+
+        # --vllm_gpu_memory_utilization 0.3 \
+            # --enable_prefix_caching \

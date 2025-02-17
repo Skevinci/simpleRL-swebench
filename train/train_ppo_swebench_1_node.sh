@@ -11,8 +11,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --critic_num_gpus_per_node 2 \
     --actor_num_nodes 1 \
     --actor_num_gpus_per_node 2 \
-    --colocate_actor_ref \
-    --vllm_num_engines 4 \
+    --vllm_num_engines 2 \
     --vllm_tensor_parallel_size 1 \
     --enable_prefix_caching \
     --vllm_gpu_memory_utilization 0.9 \

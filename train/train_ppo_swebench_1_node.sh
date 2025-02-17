@@ -11,10 +11,9 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --critic_num_gpus_per_node 2 \
     --actor_num_nodes 1 \
     --actor_num_gpus_per_node 2 \
+    --colocate_actor_ref \
     --vllm_num_engines 2 \
     --vllm_tensor_parallel_size 1 \
-    --enable_prefix_caching \
-    --vllm_gpu_memory_utilization 0.3 \
     --micro_train_batch_size 1 \
     --train_batch_size 2 \
     --micro_rollout_batch_size 1 \
@@ -33,7 +32,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --actor_learning_rate 5e-7 \
     --critic_learning_rate 9e-6 \
     --init_kl_coef 0.01 \
-    --prompt_data  data/swebench_oracle.json \
+    --prompt_data  data/math_level3to5_data_processed_with_qwen_prompt.json \
     --input_key input \
     --normalize_reward \
     --flash_attn \
@@ -46,4 +45,5 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --ckpt_path $HDFS_HOME/checkpoints/$RUN_NAME  \
     --max_ckpt_num 20000 
 
-#    --colocate_actor_ref \
+        # --vllm_gpu_memory_utilization 0.3 \
+            # --enable_prefix_caching \

@@ -11,14 +11,15 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --critic_num_gpus_per_node 2 \
     --actor_num_nodes 1 \
     --actor_num_gpus_per_node 2 \
-    --vllm_num_engines 2 \
+    --vllm_num_engines 4 \
     --vllm_tensor_parallel_size 1 \
+    --colocate_actor_ref \
     --enable_prefix_caching \
-    --vllm_gpu_memory_utilization 0.9 \
+    --vllm_gpu_memory_utilization 0.3 \
     --micro_train_batch_size 1 \
-    --train_batch_size 16 \
+    --train_batch_size 4 \
     --micro_rollout_batch_size 1 \
-    --rollout_batch_size 16 \
+    --rollout_batch_size 4 \
     --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \
     --temperature 0.6 \
@@ -28,7 +29,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --num_episodes 20 \
     --prompt_max_len 100000 \
     --generate_max_len 20000 \
-    --zero_stage 3 \
+    --zero_stage 2 \
     --bf16 \
     --actor_learning_rate 5e-7 \
     --critic_learning_rate 9e-6 \

@@ -18,7 +18,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --micro_train_batch_size 1 \
     --train_batch_size 16 \
     --micro_rollout_batch_size 1 \
-    --rollout_batch_size 32 \
+    --rollout_batch_size 16 \
     --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \
     --temperature 0.6 \
@@ -28,7 +28,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --num_episodes 20 \
     --prompt_max_len 100000 \
     --generate_max_len 20000 \
-    --zero_stage 2 \
+    --zero_stage 3 \
     --bf16 \
     --actor_learning_rate 5e-7 \
     --critic_learning_rate 9e-6 \

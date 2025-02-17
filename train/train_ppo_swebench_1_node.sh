@@ -28,7 +28,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --num_episodes 20 \
     --prompt_max_len 100000 \
     --generate_max_len 20000 \
-    --zero_stage 3 \
+    --zero_stage 2 \
     --bf16 \
     --actor_learning_rate 5e-7 \
     --critic_learning_rate 9e-6 \

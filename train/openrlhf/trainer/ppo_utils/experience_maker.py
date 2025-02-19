@@ -665,8 +665,8 @@ def preprocess_swebench_response(sequence, answer):
     # print("================== answer ==================", answer)
     box_match = compute_patch_reward(model_output, answer)
         
-    if "boxed" not in model_output:
-        box_match = -1.0
+    # if "boxed" not in model_output:
+    #     box_match = -1.0
         
     print("================== box_match =================", box_match)
 

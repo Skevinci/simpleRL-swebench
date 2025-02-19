@@ -19,7 +19,7 @@ bash -c "
     pip install vllm==0.6.1;
     pip install -e .;
 
-    huggingface-cli download Qwen/Qwen2.5-0.5B-Instruct --local-dir /workspace/hdfs/model_hub;
+    huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B --local-dir /workspace/hdfs/model_hub;
 
     python preprocess_swebench.py;
 

@@ -1,6 +1,6 @@
 
 HDFS_HOME=/workspace/hdfs
-RUN_NAME=swebench_ppo_train_2_64_rollout_2_256_prompt_55k_zero_3
+RUN_NAME=swebench_ppo_train_2_64_rollout_2_256_prompt_55k_zero_3_tp_2
 
 python3 openrlhf/cli/train_ppo_ray_box.py \
     --ref_num_nodes 1 \
@@ -13,7 +13,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --actor_num_gpus_per_node 2 \
     --colocate_actor_ref \
     --vllm_num_engines 4 \
-    --vllm_tensor_parallel_size 1 \
+    --vllm_tensor_parallel_size 2 \
     --micro_train_batch_size 2 \
     --train_batch_size 64 \
     --micro_rollout_batch_size 2 \

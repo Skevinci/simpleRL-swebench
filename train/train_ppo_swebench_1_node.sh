@@ -1,6 +1,6 @@
 
 HDFS_HOME=/workspace/hdfs
-RUN_NAME=swebench_ppo
+RUN_NAME=swebench_ppo_train_2_128_rollout_2_1024_prompt_60k
 
 python3 openrlhf/cli/train_ppo_ray_box.py \
     --ref_num_nodes 1 \
@@ -25,8 +25,8 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --max_samples 100000 \
     --max_epochs 1 \
     --num_episodes 20 \
-    --prompt_max_len 80000 \
-    --generate_max_len 20000 \
+    --prompt_max_len 50000 \
+    --generate_max_len 10000 \
     --zero_stage 2 \
     --bf16 \
     --actor_learning_rate 5e-7 \

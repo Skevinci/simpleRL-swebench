@@ -17,7 +17,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --micro_train_batch_size 2 \
     --train_batch_size 64 \
     --micro_rollout_batch_size 2 \
-    --rollout_batch_size 256 \
+    --rollout_batch_size 128 \
     --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \
     --temperature 0.6 \

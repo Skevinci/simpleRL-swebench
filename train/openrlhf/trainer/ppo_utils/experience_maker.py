@@ -661,7 +661,7 @@ def preprocess_swebench_response(sequence, answer):
         if stop_word in model_output:
             model_output = model_output.split(stop_word)[0].strip()
 
-    logger.info(f"sequence: {sequence}")
+    # logger.info(f"sequence: {sequence}")
     # print("================== model_output ==================", model_output)
     # print("================== Finish output ==================")
     # print("================== answer ==================", answer)
@@ -670,7 +670,7 @@ def preprocess_swebench_response(sequence, answer):
     # if "boxed" not in model_output:
     #     box_match = -1.0
         
-    logger.info(f"box_match: {box_match}")
+    # logger.info(f"box_match: {box_match}")
 
     return "", box_match
 

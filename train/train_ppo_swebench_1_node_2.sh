@@ -1,6 +1,6 @@
 
 HDFS_HOME=/workspace/hdfs
-RUN_NAME=swebench_ppo_train_2_64_rollout_2_256_prompt_55k_zero_3
+RUN_NAME=swebench_ppo_train_2_64_rollout_2_256_prompt_16k_zero_3
 
 python3 openrlhf/cli/train_ppo_ray_box.py \
     --ref_num_nodes 1 \

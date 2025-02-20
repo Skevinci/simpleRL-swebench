@@ -2,6 +2,7 @@ import json
 import re
 from tqdm.auto import tqdm
 from datasets import load_dataset 
+from transformers import AutoTokenizer
 import logging
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -113,11 +114,15 @@ def extract_code_context(code_text, patch_text, min_context=5, extend_threshold=
 
 
 swebench = load_dataset("princeton-nlp/SWE-bench_oracle", split="train")
+tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-R1-Distill-Qwen-7B")
 
 print(f"Number of examples in SWE-bench_oracle: {len(swebench)}")
 
 need_import = 0
 num_instances = 0
+num_exceed = 0
+max_token_length = 0
+average_token_length = 0
 with open("data/swebench_oracle.json", "w") as f:
     for idx, datum in enumerate(tqdm(swebench, desc="Process SWE-bench_oracle")):
         # if idx > 4:
@@ -146,20 +151,29 @@ with open("data/swebench_oracle.json", "w") as f:
         if len(extract_result) == 0:
             continue
 
-        num_instances += 1
         # output_dict["code_context"] = extract_result
         joined_extract_result = "\n".join(extract_result)
         processed_input = process_text(cleaned_input)
         output_dict["input"] = f"{processed_input} <code>{joined_extract_result}</code><|im_end|>\n<|im_start|>assistant\n"
+        token_length = len(tokenizer.encode(output_dict["input"]))
+        if token_length > 12000:
+            num_exceed += 1
+            continue
+        average_token_length += token_length
+        max_token_length = max(max_token_length, token_length)
         
         output_dict["ground_truth_answer"] = ground_truth_patch
         output_dict["answer"] = ground_truth_patch
         output_dict["target"] = ground_truth_patch
         
         output_dict["commit"] = datum["base_commit"]
+        num_instances += 1
         
         print(json.dumps(output_dict), file=f, flush=True)
         
 print("Finished processing SWE-bench_oracle.")
-print(f"Number of examples that need import: {need_import}")
+# print(f"Number of examples that need import: {need_import}")
 print(f"Number of remain instances: {num_instances}")
+# print(f"Max token length: {max_token_length}")
+# print(f"Average token length: {average_token_length / num_instances}")
+# print(f"Number of examples exceed token limit: {num_exceed}")

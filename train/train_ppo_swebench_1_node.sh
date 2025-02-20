@@ -14,10 +14,10 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --colocate_actor_ref \
     --vllm_num_engines 4 \
     --vllm_tensor_parallel_size 1 \
-    --micro_train_batch_size 1 \
+    --micro_train_batch_size 2 \
     --train_batch_size 128 \
-    --micro_rollout_batch_size 1 \
-    --rollout_batch_size 256 \
+    --micro_rollout_batch_size 2 \
+    --rollout_batch_size 1024 \
     --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \
     --temperature 0.6 \

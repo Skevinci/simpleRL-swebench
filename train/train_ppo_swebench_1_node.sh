@@ -1,6 +1,6 @@
 
 HDFS_HOME=/workspace/hdfs
-RUN_NAME=swebench_ppo_train_2_64_rollout_2_512_prompt_60k
+RUN_NAME=swebench_ppo_train_2_64_rollout_2_256_prompt_55k
 
 python3 openrlhf/cli/train_ppo_ray_box.py \
     --ref_num_nodes 1 \
@@ -17,7 +17,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --micro_train_batch_size 2 \
     --train_batch_size 64 \
     --micro_rollout_batch_size 2 \
-    --rollout_batch_size 512 \
+    --rollout_batch_size 256 \
     --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \
     --temperature 0.6 \
@@ -26,7 +26,7 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --max_epochs 1 \
     --num_episodes 20 \
     --prompt_max_len 50000 \
-    --generate_max_len 10000 \
+    --generate_max_len 5000 \
     --zero_stage 2 \
     --bf16 \
     --actor_learning_rate 5e-7 \

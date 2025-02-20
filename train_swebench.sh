@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=train
-#SBATCH --output=/nlp/data/sikaili/simpleRL-swebench/output/train_large_output.txt
-#SBATCH --error=/nlp/data/sikaili/simpleRL-swebench/output/train_large_error.txt
+#SBATCH --output=/nlp/data/sikaili/simpleRL-swebench/output/train_smallest_output.txt
+#SBATCH --error=/nlp/data/sikaili/simpleRL-swebench/output/train_smallest_error.txt
 #SBATCH --partition=p_nlp
 #SBATCH --gpus=8
 #SBATCH --constraint=48GBgpu

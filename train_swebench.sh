@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH --job-name=train
-#SBATCH --output=/nlp/data/sikaili/simpleRL-swebench/output/train_node05_output.txt
-#SBATCH --error=/nlp/data/sikaili/simpleRL-swebench/output/train_node05_error.txt
+#SBATCH --output=/nlp/data/sikaili/simpleRL-swebench/output/train_output.txt
+#SBATCH --error=/nlp/data/sikaili/simpleRL-swebench/output/train_error.txt
 #SBATCH --partition=p_nlp
 #SBATCH --gpus=8
-#SBATCH --nodelist=nlpgpu05
+#SBATCH --constraint=48GBgpu
 #SBATCH --mem=480GB
 #SBATCH --cpus-per-gpu=8
 
@@ -19,7 +19,7 @@ bash -c "
     pip install vllm==0.6.1;
     pip install -e .;
 
-    huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B --local-dir /workspace/hdfs/model_hub;
+    huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-7B --local-dir /workspace/hdfs/model_hub;
 
     python preprocess_swebench.py;
 

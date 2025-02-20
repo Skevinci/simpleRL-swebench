@@ -15,9 +15,9 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --vllm_num_engines 4 \
     --vllm_tensor_parallel_size 1 \
     --micro_train_batch_size 1 \
-    --train_batch_size 16 \
+    --train_batch_size 128 \
     --micro_rollout_batch_size 1 \
-    --rollout_batch_size 32 \
+    --rollout_batch_size 256 \
     --pretrain $HDFS_HOME/model_hub \
     --save_path $HDFS_HOME/checkpoints/$RUN_NAME \
     --temperature 0.6 \
@@ -25,8 +25,8 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --max_samples 100000 \
     --max_epochs 1 \
     --num_episodes 20 \
-    --prompt_max_len 20000 \
-    --generate_max_len 10000 \
+    --prompt_max_len 80000 \
+    --generate_max_len 20000 \
     --zero_stage 2 \
     --bf16 \
     --actor_learning_rate 5e-7 \
